@@ -82,6 +82,59 @@
     .cz-root input::placeholder {
       color: #9a9a9a;
     }
+    .cz-root .cz-mobile-nav,
+    .cz-root .cz-mobile-actions {
+      display: none;
+    }
+    .cz-root .cz-mobile-nav {
+      gap: 5px;
+      overflow-x: auto;
+      padding: 8px 12px;
+      border-bottom: 1px solid #1e1e1e;
+      background: #141414;
+      scrollbar-width: none;
+      overscroll-behavior-x: contain;
+    }
+    .cz-root .cz-mobile-nav::-webkit-scrollbar { display: none; }
+    .cz-root .cz-mobile-nav a {
+      flex: 0 0 auto;
+      padding: 8px 10px;
+      border-radius: 6px;
+      color: #cfcfcf;
+      font-size: 11px;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .cz-root .cz-mobile-nav a[aria-current="page"] { background: #252525; color: #fff; }
+    .cz-root .cz-mobile-actions { gap: 8px; margin-bottom: 14px; }
+    .cz-root .cz-mobile-actions a {
+      display: flex;
+      min-height: 42px;
+      flex: 1;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      border: 1px solid #2c2c2c;
+      border-radius: 8px;
+      background: #171717;
+      color: #fff;
+      font-size: 12px;
+      text-decoration: none;
+    }
+    .cz-root .cz-mobile-actions a:first-child { border-color: #2f5bff; background: #2f5bff; }
+    .cz-root .cz-mobile-actions svg { width: 15px; height: 15px; }
+    @media (max-width: 991.98px) {
+      .cz-root .cz-mobile-nav,
+      .cz-root .cz-mobile-actions { display: flex; }
+    }
+    @media (max-width: 575.98px) {
+      .cz-root main > header { gap: 8px; padding: 10px 12px; }
+      .cz-root main > header h1 { font-size: 18px; }
+      .cz-root .cz-dashboard-content { padding: 12px 10px 20px; }
+      .cz-root .cz-stat-value { font-size: 17px; }
+      .cz-root .cz-chart-range { max-width: 100%; overflow-x: auto; padding-bottom: 3px; scrollbar-width: none; }
+      .cz-root .cz-chart-range::-webkit-scrollbar { display: none; }
+    }
   </style>
 </head>
 <body>
@@ -114,9 +167,21 @@
           <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17 10 11l4 4 6-8"/><path d="M14 7h6v6"/></svg>
           Opportunities
         </a>
+        <a href="investment-detail.html" class="cz-nav d-flex align-items-center gap-[11px] h-[34px] px-[10px] rounded-[8px] text-[#cfcfcf] text-[14px] no-underline">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4M11 8v6m-3-3h6"/></svg>
+          Investment details
+        </a>
         <a href="portfolio.html" class="cz-nav d-flex align-items-center gap-[11px] h-[34px] px-[10px] rounded-[8px] text-[#cfcfcf] text-[14px] no-underline">
           <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"/><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"/></svg>
           Portfolio
+        </a>
+        <a href="goals.html" class="cz-nav d-flex align-items-center gap-[11px] h-[34px] px-[10px] rounded-[8px] text-[#cfcfcf] text-[14px] no-underline">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 3v18M3 12h18"/></svg>
+          Goals
+        </a>
+        <a href="loans.html" class="cz-nav d-flex align-items-center gap-[11px] h-[34px] px-[10px] rounded-[8px] text-[#cfcfcf] text-[14px] no-underline">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18m5-14H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          Loans
         </a>
         <a href="add-funds.html" class="cz-nav d-flex align-items-center gap-[11px] h-[34px] px-[10px] rounded-[8px] text-[#cfcfcf] text-[14px] no-underline">
           <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg>
@@ -164,7 +229,7 @@
       <header class="d-flex flex-wrap align-items-center justify-content-between gap-[12px] px-[16px] lg:px-[14px] py-[12px] border-b border-[#1a1a1a]">
         <div class="min-w-0">
           <div class="d-flex align-items-center gap-[8px] text-[12px]">
-            <span class="text-[#a8a8a8]">Oripio Crypto</span>
+            <span class="text-[#a8a8a8]">Coinza Demo</span>
             <svg class="w-[12px] h-[12px] text-[#a8a8a8]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
             <span class="text-white">Overview</span>
           </div>
@@ -187,11 +252,30 @@
         </div>
       </header>
 
-      <div class="px-[12px] lg:px-[16px] py-[16px] flex-grow-1">
+      <nav class="cz-mobile-nav" aria-label="Main navigation">
+        <a href="index.html" aria-current="page">Dashboard</a>
+        <a href="opportunities.html">Opportunities</a>
+        <a href="investment-detail.html">Details</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="goals.html">Goals</a>
+        <a href="loans.html">Loans</a>
+        <a href="add-funds.html">Add funds</a>
+        <a href="withdraw.html">Withdraw</a>
+        <a href="activity.html">Activity</a>
+        <a href="analysis.html">Analysis</a>
+        <a href="chat.html">Chat</a>
+        <a href="profile.html">Profile</a>
+      </nav>
+
+      <div class="px-[12px] lg:px-[16px] py-[16px] flex-grow-1 cz-dashboard-content">
+        <div class="cz-mobile-actions" aria-label="Quick actions">
+          <a href="add-funds.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>Add funds</a>
+          <a href="goals.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/></svg>Goals</a>
+        </div>
 
         <!-- Stat cards -->
         <div class="row g-3">
-          <div class="col-12 col-sm-6 col-xl-3">
+          <div class="col-6 col-xl-3">
             <div class="bg-[#151515] rounded-[14px] p-[14px] h-100">
               <div class="d-flex align-items-center gap-[12px]">
                 <span class="d-inline-flex align-items-center justify-content-center w-[30px] h-[30px] rounded-full bg-[#232323] text-white">
@@ -208,7 +292,7 @@
               </div>
             </div>
           </div>
-          <div class="col-12 col-sm-6 col-xl-3">
+          <div class="col-6 col-xl-3">
             <div class="bg-[#151515] rounded-[14px] p-[14px] h-100">
               <div class="d-flex align-items-center gap-[12px]">
                 <span class="d-inline-flex align-items-center justify-content-center w-[30px] h-[30px] rounded-full bg-[#232323] text-white">
@@ -225,7 +309,7 @@
               </div>
             </div>
           </div>
-          <div class="col-12 col-sm-6 col-xl-3">
+          <div class="col-6 col-xl-3">
             <div class="bg-[#151515] rounded-[14px] p-[14px] h-100">
               <div class="d-flex align-items-center gap-[12px]">
                 <span class="d-inline-flex align-items-center justify-content-center w-[30px] h-[30px] rounded-full bg-[#232323] text-white">
@@ -242,7 +326,7 @@
               </div>
             </div>
           </div>
-          <div class="col-12 col-sm-6 col-xl-3">
+          <div class="col-6 col-xl-3">
             <div class="bg-[#151515] rounded-[14px] p-[14px] h-100">
               <div class="d-flex align-items-center gap-[12px]">
                 <span class="d-inline-flex align-items-center justify-content-center w-[30px] h-[30px] rounded-full bg-[#232323] text-white">
