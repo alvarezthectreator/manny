@@ -71,7 +71,7 @@
   sidebar.className = "sidebar";
   sidebar.id = "primary-sidebar";
   sidebar.setAttribute("aria-label", "Primary navigation");
-  sidebar.innerHTML = `<a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="#2fbf71"><path d="M12 3.2l3 3-3 3-3-3z"/><path d="M6.2 9l3 3-3 3-3-3z"/><path d="M17.8 9l3 3-3 3-3-3z"/><path d="M12 14.8l3 3-3 3-3-3z"/></svg></span><span class="brand-name">Cladvest</span></a><nav class="nav-sections" aria-label="Primary navigation">${navMarkup}</nav><div class="sidebar-foot"><a class="profile-link" href="profile.html"><span class="avatar">OH</span><span class="profile-meta"><strong>Oripio Hossain</strong><small>Demo profile</small></span></a></div>`;
+  sidebar.innerHTML = `<a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="#2fbf71"><path d="M12 3.2l3 3-3 3-3-3z"/><path d="M6.2 9l3 3-3 3-3-3z"/><path d="M17.8 9l3 3-3 3-3-3z"/><path d="M12 14.8l3 3-3 3-3-3z"/></svg></span><span class="brand-name">Cladvest</span></a><nav class="nav-sections" aria-label="Primary navigation">${navMarkup}</nav><div class="sidebar-foot"><a class="profile-link" href="profile.html"><span class="avatar">OH</span><span class="profile-meta"><strong>Oripio Hossain</strong><small>Account owner</small></span></a></div>`;
 
   const shell = document.createElement("div");
   shell.className = "app-shell";
@@ -105,9 +105,9 @@
     loanRequests: [],
     loanReminder: true,
     transactions: [
-      { type: "Deposit", detail: "Bank transfer", date: "Oct 30, 2026", amount: 1250, status: "Demo completed" },
-      { type: "Investment", detail: "Tesla (TSLA)", date: "Oct 28, 2026", amount: -500, status: "Demo completed" },
-      { type: "Deposit", detail: "Crypto deposit", date: "Oct 24, 2026", amount: 300, status: "Demo completed" }
+      { type: "Deposit", detail: "Bank transfer", date: "Oct 30, 2026", amount: 1250, status: "Recorded" },
+      { type: "Investment", detail: "Tesla (TSLA)", date: "Oct 28, 2026", amount: -500, status: "Recorded" },
+      { type: "Deposit", detail: "Crypto deposit", date: "Oct 24, 2026", amount: 300, status: "Recorded" }
     ]
   };
 
@@ -129,7 +129,7 @@
   }
 
   function saveState(state) {
-    try { localStorage.setItem(storageKey, JSON.stringify(state)); } catch { /* Storage is optional in this demo. */ }
+    try { localStorage.setItem(storageKey, JSON.stringify(state)); } catch { /* Local storage is optional. */ }
   }
 
   function money(value) {
@@ -192,7 +192,7 @@
       const description = document.createElement("div");
       description.innerHTML = `<div class="list-title"></div><div class="list-subtitle"></div>`;
       description.querySelector(".list-title").textContent = `${plan.asset} · ${money(plan.amount)} ${plan.frequency.toLowerCase()}`;
-      description.querySelector(".list-subtitle").textContent = `Next demo run: ${plan.nextRun} · ${plan.active ? "Active" : "Paused"}`;
+      description.querySelector(".list-subtitle").textContent = `Next scheduled date: ${plan.nextRun} · ${plan.active ? "Active" : "Paused"}`;
       const actions = document.createElement("div");
       actions.className = "button-row";
       const toggle = document.createElement("button");
@@ -225,13 +225,16 @@
 
   function renderState() {
     const state = readState();
-    document.querySelectorAll("[data-demo-cash]").forEach((node) => { node.textContent = money(state.cash); });
-    document.querySelectorAll("[data-demo-total]").forEach((node) => { node.textContent = money(state.cash + state.invested); });
+    document.querySelectorAll("[data-account-cash]").forEach((node) => { node.textContent = money(state.cash); });
+    document.querySelectorAll("[data-account-total]").forEach((node) => { node.textContent = money(state.cash + state.invested); });
     const balance = document.querySelector("[data-available-balance]");
     if (balance) balance.textContent = money(state.cash);
     const transactionBody = document.querySelector("[data-transaction-list]");
     if (transactionBody) {
-      transactionBody.innerHTML = state.transactions.map((transaction) => `<tr data-filter-item data-transaction-type="${transaction.type}"><td>${transaction.date}</td><td>${transaction.type}</td><td>${transaction.detail}</td><td>${money(transaction.amount)}</td><td><span class="status status-demo">${transaction.status}</span></td></tr>`).join("");
+      transactionBody.innerHTML = state.transactions.map((transaction) => {
+        const status = String(transaction.status || "Recorded").toLowerCase().endsWith("completed") ? "Recorded" : transaction.status || "Recorded";
+        return `<tr data-filter-item data-transaction-type="${transaction.type}"><td>${transaction.date}</td><td>${transaction.type}</td><td>${transaction.detail}</td><td>${money(transaction.amount)}</td><td><span class="status status-simulated">${status}</span></td></tr>`;
+      }).join("");
     }
     renderGoals(state);
     renderRecurringPlans(state);
@@ -245,7 +248,7 @@
       if (!state.loanRequests.length) {
         const empty = document.createElement("p");
         empty.className = "empty-state";
-        empty.textContent = "No demo requests submitted.";
+        empty.textContent = "No requests submitted yet.";
         requestList.append(empty);
       }
       for (const request of state.loanRequests) {
@@ -256,8 +259,8 @@
         details.querySelector(".list-title").textContent = `${money(request.amount)} · ${request.months} months`;
         details.querySelector(".list-subtitle").textContent = `Submitted ${request.date} · ${money(request.payment)}/mo estimate`;
         const status = document.createElement("span");
-        status.className = "status status-demo";
-        status.textContent = request.status;
+        status.className = "status status-simulated";
+        status.textContent = "Submitted";
         row.append(details, status);
         requestList.append(row);
       }
@@ -283,7 +286,7 @@
     saveState(state);
     renderState();
     goalForm.reset();
-    showToast("Demo goal created. No money was invested.");
+    showToast("Goal saved. No money was invested.");
   });
 
   const recurringForm = document.querySelector("[data-recurring-form]");
@@ -305,7 +308,7 @@
     saveState(state);
     renderState();
     recurringForm.reset();
-    showToast("Recurring demo plan saved. No investment will execute automatically.");
+    showToast("Schedule saved. No investment will execute automatically.");
   });
 
   document.querySelector("[data-recurring-list]")?.addEventListener("click", (event) => {
@@ -323,7 +326,7 @@
     renderState();
   });
 
-  document.querySelectorAll("form[data-demo-form='deposit']").forEach((form) => {
+  document.querySelectorAll("form[data-funds-action='deposit']").forEach((form) => {
     const updateMethod = () => {
       const selected = form.querySelector("[name='method']:checked");
       const summary = document.querySelector("[data-selected-method]");
@@ -332,7 +335,7 @@
     form.addEventListener("change", updateMethod);
   });
 
-  document.querySelectorAll("[data-demo-form]").forEach((form) => {
+  document.querySelectorAll("[data-funds-action]").forEach((form) => {
     form.addEventListener("submit", (event) => {
       event.preventDefault();
       const amountInput = form.querySelector("[name='amount']");
@@ -344,20 +347,20 @@
       }
 
       const state = readState();
-      const action = form.dataset.demoForm;
+      const action = form.dataset.fundsAction;
       if (action === "deposit" && amount > 100000) {
-        showToast("The demo deposit limit is $100,000 per transaction.");
+        showToast("The maximum deposit entry is $100,000 per transaction.");
         return;
       }
       if (action === "withdraw" && amount > state.cash) {
-        showToast("That amount is above your available demo balance.");
+        showToast("That amount is above your available balance.");
         return;
       }
 
-      const method = form.querySelector("[name='method']:checked")?.value || form.querySelector("[name='method']")?.value || "Demo method";
+      const method = form.querySelector("[name='method']:checked")?.value || form.querySelector("[name='method']")?.value || "Payment method";
       const type = action === "withdraw" ? "Withdrawal" : "Deposit";
       state.cash += action === "withdraw" ? -amount : amount;
-      state.transactions.unshift({ type, detail: method, date: new Intl.DateTimeFormat("en-US", { month: "short", day: "2-digit", year: "numeric" }).format(new Date()), amount: action === "withdraw" ? -amount : amount, status: "Demo completed" });
+      state.transactions.unshift({ type, detail: method, date: new Intl.DateTimeFormat("en-US", { month: "short", day: "2-digit", year: "numeric" }).format(new Date()), amount: action === "withdraw" ? -amount : amount, status: "Recorded" });
       saveState(state);
       renderState();
       form.reset();
@@ -416,11 +419,11 @@
         months,
         payment,
         date: new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric", year: "numeric" }).format(new Date()),
-        status: "Submitted (demo)"
+        status: "Submitted"
       });
       saveState(state);
       renderState();
-      showToast("Demo loan request recorded. No credit check was run and no funds were issued.");
+      showToast("Request recorded. No credit check was run and no funds were issued.");
     });
     updateEstimate();
   }
@@ -429,7 +432,7 @@
     const state = readState();
     state.loanReminder = event.currentTarget.checked;
     saveState(state);
-    showToast("Demo reminder preference saved on this device.");
+    showToast("Reminder preference saved on this device.");
   });
 
   document.querySelectorAll("[data-chat-form]").forEach((form) => {
@@ -446,7 +449,7 @@
       input.value = "";
       const reply = document.createElement("div");
       reply.className = "chat-bubble";
-      reply.textContent = "This is a demo support chat. A live support agent is not connected.";
+      reply.textContent = "This is an automated support preview. A live support agent is not connected.";
       messages?.append(reply);
       messages?.scrollTo({ top: messages.scrollHeight, behavior: "smooth" });
     });
@@ -476,7 +479,7 @@
   document.querySelector("[data-download-statement]")?.addEventListener("click", () => {
     const visibleRows = [...document.querySelectorAll("[data-transaction-list] tr:not([hidden])")];
     if (!visibleRows.length) {
-      showToast("There are no visible demo transactions to export.");
+      showToast("There are no visible transactions to export.");
       return;
     }
     const escapeCsv = (value) => `"${String(value).replaceAll('"', '""')}"`;
@@ -486,11 +489,11 @@
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
     link.href = url;
-    link.download = `cladvest-demo-statement-${new Date().toISOString().slice(0, 10)}.csv`;
+    link.download = `cladvest-statement-${new Date().toISOString().slice(0, 10)}.csv`;
     document.body.append(link);
     link.click();
     link.remove();
     window.setTimeout(() => URL.revokeObjectURL(url), 1000);
-    showToast("Demo activity statement exported as CSV.");
+    showToast("Activity statement exported as CSV.");
   });
 })();

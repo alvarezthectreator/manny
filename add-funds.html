@@ -16,13 +16,12 @@
   <div id="app">
     <div class="page-body">
       <div class="page-heading">
-        <div><div class="eyebrow">Account funding</div><h1>Add funds</h1><p>Choose a demo payment method and add simulated cash to your investment account.</p></div>
-        <span class="demo-badge">No real payments</span>
+        <div><div class="eyebrow">Account funding</div><h1>Add funds</h1><p>Choose a payment method and add a simulated cash entry to your account.</p></div>
       </div>
       <div class="form-grid">
         <section class="panel">
           <h2 class="panel-title">Deposit details</h2>
-          <form data-demo-form="deposit">
+          <form data-funds-action="deposit">
             <p class="field-label">Choose a method</p>
             <div class="method-list" role="radiogroup" aria-label="Deposit method">
               <div class="method-option"><input id="method-bank" type="radio" name="method" value="Bank transfer" checked /><label for="method-bank"><span class="method-symbol">BK</span><span>Bank transfer</span></label></div>
@@ -30,21 +29,21 @@
               <div class="method-option"><input id="method-cashapp" type="radio" name="method" value="Cash App" /><label for="method-cashapp"><span class="method-symbol">$</span><span>Cash App</span></label></div>
               <div class="method-option"><input id="method-zelle" type="radio" name="method" value="Zelle" /><label for="method-zelle"><span class="method-symbol">Z</span><span>Zelle</span></label></div>
             </div>
-            <div class="field"><label for="deposit-amount">Amount (USD)</label><div class="inline-field"><span class="pill">USD</span><input class="control" id="deposit-amount" name="amount" type="number" min="1" step="0.01" placeholder="0.00" required /></div><span class="hint">Demo limit: $1 to $100,000 per simulated deposit.</span></div>
-            <div class="notice">Demo only. This action changes a local sample balance; it does not connect to a bank, Cash App, Zelle, or blockchain network.</div>
+            <div class="field"><label for="deposit-amount">Amount (USD)</label><div class="inline-field"><span class="pill">USD</span><input class="control" id="deposit-amount" name="amount" type="number" min="1" step="0.01" placeholder="0.00" required /></div><span class="hint">Entry range: $1 to $100,000 per simulated deposit.</span></div>
+            <div class="notice">Simulation only. This records a local balance change; it does not connect to a bank, Cash App, Zelle, or blockchain network.</div>
             <div class="button-row" style="margin-top:16px"><button class="button button-primary" type="submit">Simulate deposit</button><a class="button" href="activity.html">View activity</a></div>
           </form>
         </section>
         <aside class="panel">
           <h2 class="panel-title">Deposit summary</h2>
           <div class="summary-list">
-            <div class="summary-row"><span>Available demo cash</span><strong data-available-balance>$12,450.00</strong></div>
+            <div class="summary-row"><span>Available cash</span><strong data-available-balance>$12,450.00</strong></div>
             <div class="summary-row"><span>Selected method</span><strong data-selected-method>Bank transfer</strong></div>
-            <div class="summary-row"><span>Demo fee</span><strong>$0.00</strong></div>
+            <div class="summary-row"><span>Example fee</span><strong>$0.00</strong></div>
             <div class="divider"></div>
             <div class="summary-row"><span>Processing</span><strong>Instant simulation</strong></div>
           </div>
-          <p class="disclaimer">No payment instructions or recipient details are provided. Do not send funds to this demo.</p>
+          <p class="disclaimer">No payment instructions or recipient details are provided. Do not send funds through this page.</p>
         </aside>
       </div>
     </div>

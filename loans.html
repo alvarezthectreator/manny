@@ -15,15 +15,15 @@
 <body data-page="Loans">
   <div id="app"><div class="page-body">
     <div class="page-heading">
-      <div><div class="eyebrow">Borrowing</div><h1>Loan center</h1><p>Explore an illustrative repayment estimate and track simulated requests. This demo does not offer or issue credit.</p></div>
-      <span class="demo-badge">Illustrative only</span>
+      <div><div class="eyebrow">Borrowing</div><h1>Loan center</h1><p>Explore an illustrative repayment estimate and track simulated requests. No credit is offered or issued here.</p></div>
+      <span class="pill">Estimate only</span>
     </div>
     <div class="notice notice-green" style="margin-bottom:16px">No credit check, eligibility decision, loan offer, or funds transfer takes place. Do not enter sensitive personal or financial information.</div>
     <div class="form-grid">
       <section class="panel">
         <h2 class="panel-title">Estimate your payments</h2>
         <form data-loan-form>
-          <div class="field"><label for="loan-amount">Loan amount (USD)</label><div class="inline-field"><span class="pill">USD</span><input class="control" id="loan-amount" name="loan-amount" type="number" min="500" max="25000" step="100" value="5000" required /></div><span class="hint">Demo range: $500 to $25,000.</span></div>
+          <div class="field"><label for="loan-amount">Loan amount (USD)</label><div class="inline-field"><span class="pill">USD</span><input class="control" id="loan-amount" name="loan-amount" type="number" min="500" max="25000" step="100" value="5000" required /></div><span class="hint">Estimate range: $500 to $25,000.</span></div>
           <div class="field"><label for="loan-term">Repayment term</label><select class="control" id="loan-term" name="loan-term"><option value="12">12 months</option><option value="24" selected>24 months</option><option value="36">36 months</option><option value="60">60 months</option></select></div>
           <div class="summary-list" aria-live="polite">
             <div class="summary-row"><span>Illustrative APR</span><strong>8.9% fixed</strong></div>
@@ -32,7 +32,7 @@
             <div class="divider"></div>
             <div class="summary-row"><span>Estimated total repayment</span><strong data-loan-total>$0.00</strong></div>
           </div>
-          <button class="button button-primary" type="submit" style="margin-top:16px">Submit demo request</button>
+          <button class="button button-primary" type="submit" style="margin-top:16px">Save request preview</button>
         </form>
       </section>
       <aside class="panel">
@@ -48,7 +48,7 @@
       </aside>
     </div>
     <div class="form-grid" style="margin-top:16px">
-      <section class="panel"><h2 class="panel-title">Request status</h2><p class="hint" style="margin-bottom:12px">Submissions are saved only in this browser and are never reviewed by a lender.</p><div data-loan-requests><p class="empty-state">No demo requests submitted.</p></div></section>
+      <section class="panel"><h2 class="panel-title">Request status</h2><p class="hint" style="margin-bottom:12px">Submissions are saved only in this browser and are never reviewed by a lender.</p><div data-loan-requests><p class="empty-state">No requests submitted yet.</p></div></section>
       <section class="panel"><h2 class="panel-title">Estimated repayment schedule</h2><p class="hint" style="margin-bottom:12px">First three installments based on the calculator above. These are not bills or amounts due.</p><div class="table-wrap"><table class="data-table"><thead><tr><th>Installment</th><th>Illustrative date</th><th>Estimate</th><th>Status</th></tr></thead><tbody data-loan-schedule></tbody></table></div></section>
     </div>
     <section class="panel" style="margin-top:16px"><div class="switch-row" style="border-top:0;padding-top:0"><label for="loan-reminder"><strong>Due-date reminder preview</strong><br /><span class="hint">Local preference only; no notification will be sent.</span></label><input id="loan-reminder" data-loan-reminder type="checkbox" checked /></div><p class="disclaimer">Any future live loan product would need a lending partner, complete terms, clear disclosures, affordability checks, and servicing support.</p></section>
