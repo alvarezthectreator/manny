@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Coinza — Dashboard</title>
+  <title>Cladvest — Dashboard</title>
   <style>
     /* Bootstrap sits in a lower cascade layer so Tailwind utilities win */
     @layer theme, base, bootstrap, components, utilities;
@@ -14,7 +14,7 @@
   <!-- Tailwind CSS v4 (browser build) -->
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   <style>
-    /* Coinza dashboard — custom CSS */
+    /* Cladvest dashboard — custom CSS */
     .cz-root {
       font-family: 'Inter', system-ui, sans-serif;
       letter-spacing: -0.01em;
@@ -71,10 +71,44 @@
       border-bottom: 0;
     }
     .cz-root .cz-btn {
-      transition: background-color 150ms cubic-bezier(0.23, 1, 0.32, 1), transform 120ms cubic-bezier(0.23, 1, 0.32, 1);
+      transition: background-color 180ms cubic-bezier(0.2, 0.75, 0.25, 1), border-color 180ms ease, transform 180ms cubic-bezier(0.2, 0.75, 0.25, 1), box-shadow 180ms ease;
     }
     .cz-root .cz-btn:active {
       transform: scale(0.97);
+    }
+    @keyframes cz-enter {
+      from { opacity: 0; filter: blur(3px); }
+      to { opacity: 1; filter: blur(0); }
+    }
+    .cz-root main > header { animation: cz-enter 420ms cubic-bezier(.2, .75, .25, 1) both; }
+    .cz-root .cz-dashboard-content > * { animation: cz-enter 460ms cubic-bezier(.2, .75, .25, 1) both; }
+    .cz-root .cz-dashboard-content > :nth-child(2) { animation-delay: 55ms; }
+    .cz-root .cz-dashboard-content > :nth-child(3) { animation-delay: 110ms; }
+    .cz-root .cz-dashboard-content > :nth-child(4) { animation-delay: 165ms; }
+    .cz-root .row.g-3 > div > :is(div, section),
+    .cz-root .row.g-3 > div > div > section {
+      animation: cz-enter 480ms cubic-bezier(.2, .75, .25, 1) both;
+      transition: transform 220ms cubic-bezier(.2, .75, .25, 1), border-color 220ms ease, box-shadow 220ms ease;
+    }
+    .cz-root .row.g-3 > div:nth-child(2) > :is(div, section),
+    .cz-root .row.g-3 > div:nth-child(2) > div > section { animation-delay: 55ms; }
+    .cz-root .row.g-3 > div:nth-child(3) > :is(div, section),
+    .cz-root .row.g-3 > div:nth-child(3) > div > section { animation-delay: 110ms; }
+    .cz-root .row.g-3 > div:nth-child(4) > :is(div, section),
+    .cz-root .row.g-3 > div:nth-child(4) > div > section { animation-delay: 165ms; }
+    @media (hover: hover) and (prefers-reduced-motion: no-preference) {
+      .cz-root .row.g-3 > div > :is(div, section):hover,
+      .cz-root .row.g-3 > div > div > section:hover { transform: translateY(-3px); border-color: #2fbf7166; box-shadow: 0 12px 30px #0005; }
+      .cz-root .cz-btn:not(:disabled):hover { transform: translateY(-2px); box-shadow: 0 6px 16px #0004; }
+      .cz-root .cz-mobile-actions a:hover { transform: translateY(-2px); box-shadow: 0 6px 16px #0004; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .cz-root *, .cz-root *::before, .cz-root *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
     }
     @layer components {
       .cz-root :is(p, h1, h2, ul, label) { margin: 0; }
@@ -82,30 +116,23 @@
     .cz-root input::placeholder {
       color: #9a9a9a;
     }
-    .cz-root .cz-mobile-nav,
-    .cz-root .cz-mobile-actions {
+    .cz-root .cz-menu-toggle,
+    .cz-root .cz-sidebar-backdrop {
       display: none;
     }
-    .cz-root .cz-mobile-nav {
-      gap: 5px;
-      overflow-x: auto;
-      padding: 8px 12px;
-      border-bottom: 1px solid #1e1e1e;
-      background: #141414;
-      scrollbar-width: none;
-      overscroll-behavior-x: contain;
+    .cz-root .cz-menu-toggle {
+      width: 38px;
+      height: 38px;
+      flex: 0 0 38px;
+      place-items: center;
+      border: 1px solid #292929;
+      border-radius: 7px;
+      background: #161616;
+      color: #fff;
     }
-    .cz-root .cz-mobile-nav::-webkit-scrollbar { display: none; }
-    .cz-root .cz-mobile-nav a {
-      flex: 0 0 auto;
-      padding: 8px 10px;
-      border-radius: 6px;
-      color: #cfcfcf;
-      font-size: 11px;
-      text-decoration: none;
-      white-space: nowrap;
-    }
-    .cz-root .cz-mobile-nav a[aria-current="page"] { background: #252525; color: #fff; }
+    .cz-root .cz-menu-toggle svg { width: 19px; height: 19px; }
+    .cz-root .cz-menu-toggle:focus { outline: 2px solid #2fbf71; outline-offset: 2px; }
+    .cz-root .cz-sidebar a:focus { outline: 2px solid #2fbf71; outline-offset: 2px; }
     .cz-root .cz-mobile-actions { gap: 8px; margin-bottom: 14px; }
     .cz-root .cz-mobile-actions a {
       display: flex;
@@ -121,11 +148,17 @@
       font-size: 12px;
       text-decoration: none;
     }
-    .cz-root .cz-mobile-actions a:first-child { border-color: #2f5bff; background: #2f5bff; }
+    .cz-root .cz-mobile-actions a:first-child { border-color: #2fbf71; background: #2fbf71; color: #07140c; }
     .cz-root .cz-mobile-actions svg { width: 15px; height: 15px; }
+    .cz-root .cz-sidebar-backdrop { position: fixed; inset: 0; z-index: 51; width: 100%; height: 100%; border: 0; background: #000a; }
+    body.drawer-open { overflow: hidden; }
     @media (max-width: 991.98px) {
-      .cz-root .cz-mobile-nav,
       .cz-root .cz-mobile-actions { display: flex; }
+      .cz-root .cz-sidebar { position: fixed; top: 0; bottom: 0; left: 0; z-index: 52; width: min(292px, calc(100vw - 56px)); height: 100dvh; overflow-y: auto; transform: translateX(-105%); transition: transform 180ms ease; }
+      .cz-root.nav-open .cz-sidebar { transform: translateX(0); box-shadow: 16px 0 50px #0009; }
+      .cz-root.nav-open .cz-sidebar-backdrop { display: block; }
+      .cz-root .cz-menu-toggle { display: grid; }
+      .cz-root > .d-flex { overflow: visible !important; }
     }
     @media (max-width: 575.98px) {
       .cz-root main > header { gap: 8px; padding: 10px 12px; }
@@ -142,14 +175,14 @@
   <div class="d-flex bg-[#0a0a0a] text-white overflow-hidden min-h-full">
 
     <!-- ============ SIDEBAR ============ -->
-    <aside class="d-none d-lg-flex flex-column w-[232px] shrink-0 bg-[#141414] border-r border-[#1c1c1c] px-[14px] pt-[14px] pb-[14px]">
+    <aside id="primary-sidebar" aria-label="Primary navigation" class="cz-sidebar d-flex flex-column w-[232px] shrink-0 bg-[#141414] border-r border-[#1c1c1c] px-[14px] pt-[14px] pb-[14px]">
       <!-- Brand -->
       <div class="d-flex align-items-center justify-content-between h-[34px]">
         <div class="d-flex align-items-center gap-[10px]">
-          <span class="d-inline-flex align-items-center justify-content-center w-[30px] h-[30px] rounded-[8px] bg-[#2f6bff]">
-            <svg viewBox="0 0 24 24" class="w-[20px] h-[20px]" fill="#fff"><path d="M12 3.2l3 3-3 3-3-3z"/><path d="M6.2 9l3 3-3 3-3-3z"/><path d="M17.8 9l3 3-3 3-3-3z"/><path d="M12 14.8l3 3-3 3-3-3z"/></svg>
+          <span class="d-inline-flex align-items-center justify-content-center w-[30px] h-[30px] rounded-[8px] bg-[#050505] border border-[#2fbf71]">
+            <svg viewBox="0 0 24 24" class="w-[20px] h-[20px]" fill="#2fbf71"><path d="M12 3.2l3 3-3 3-3-3z"/><path d="M6.2 9l3 3-3 3-3-3z"/><path d="M17.8 9l3 3-3 3-3-3z"/><path d="M12 14.8l3 3-3 3-3-3z"/></svg>
           </span>
-          <span class="text-[17px] font-medium tracking-[-0.02em]">Coinza</span>
+          <span class="text-[17px] font-medium tracking-[-0.02em]">Cladvest</span>
         </div>
         <button class="cz-btn d-inline-flex align-items-center justify-content-center w-[24px] h-[24px] rounded-[6px] border-1 border-[#2a2a2a] text-[#9a9a9a] bg-transparent" aria-label="Collapse sidebar">
           <svg class="w-[13px] h-[13px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M9 3v18"/></svg>
@@ -159,6 +192,7 @@
       <!-- Investment navigation -->
       <p class="mt-[22px] mb-[6px] text-[10.5px] text-[#8c8c8c] uppercase">Invest</p>
       <nav class="d-flex flex-column gap-[2px]">
+        <p class="cz-sidebar-group">Overview</p>
         <a href="index.html" class="cz-nav d-flex align-items-center gap-[11px] h-[34px] px-[10px] rounded-[8px] bg-[#222222] text-white text-[14px] no-underline">
           <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="7" x="3" y="3" rx="2"/><rect width="7" height="7" x="14" y="3" rx="2"/><rect width="7" height="7" x="14" y="14" rx="2"/><rect width="7" height="7" x="3" y="14" rx="2"/></svg>
           Dashboard
@@ -171,6 +205,7 @@
           <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4M11 8v6m-3-3h6"/></svg>
           Investment details
         </a>
+        <p class="cz-sidebar-group">Portfolio</p>
         <a href="portfolio.html" class="cz-nav d-flex align-items-center gap-[11px] h-[34px] px-[10px] rounded-[8px] text-[#cfcfcf] text-[14px] no-underline">
           <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"/><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"/></svg>
           Portfolio
@@ -179,6 +214,7 @@
           <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 3v18M3 12h18"/></svg>
           Goals
         </a>
+        <p class="cz-sidebar-group">Money</p>
         <a href="loans.html" class="cz-nav d-flex align-items-center gap-[11px] h-[34px] px-[10px] rounded-[8px] text-[#cfcfcf] text-[14px] no-underline">
           <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18m5-14H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
           Loans
@@ -195,6 +231,7 @@
           <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h13l-3-3"/><path d="m17 4 3 3-3 3"/><path d="M20 17H7l3 3"/><path d="m7 20-3-3 3-3"/></svg>
           Activity
         </a>
+        <p class="cz-sidebar-group">Insights &amp; Support</p>
         <a href="analysis.html" class="cz-nav d-flex align-items-center gap-[11px] h-[34px] px-[10px] rounded-[8px] text-[#cfcfcf] text-[14px] no-underline">
           <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5M4 19h16"/><path d="m7 15 4-5 3 2 5-7"/></svg>
           Analysis
@@ -221,15 +258,19 @@
         </a>
       </div>
     </aside>
+    <button class="cz-sidebar-backdrop" type="button" aria-label="Close navigation"></button>
 
     <!-- ============ MAIN ============ -->
     <main class="flex-grow-1 min-w-0 d-flex flex-column">
 
       <!-- Header -->
       <header class="d-flex flex-wrap align-items-center justify-content-between gap-[12px] px-[16px] lg:px-[14px] py-[12px] border-b border-[#1a1a1a]">
+        <button class="cz-menu-toggle d-lg-none" type="button" aria-label="Open navigation" aria-controls="primary-sidebar" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
         <div class="min-w-0">
           <div class="d-flex align-items-center gap-[8px] text-[12px]">
-            <span class="text-[#a8a8a8]">Coinza Demo</span>
+            <span class="text-[#a8a8a8]">Cladvest</span>
             <svg class="w-[12px] h-[12px] text-[#a8a8a8]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
             <span class="text-white">Overview</span>
           </div>
@@ -251,21 +292,6 @@
           </button>
         </div>
       </header>
-
-      <nav class="cz-mobile-nav" aria-label="Main navigation">
-        <a href="index.html" aria-current="page">Dashboard</a>
-        <a href="opportunities.html">Opportunities</a>
-        <a href="investment-detail.html">Details</a>
-        <a href="portfolio.html">Portfolio</a>
-        <a href="goals.html">Goals</a>
-        <a href="loans.html">Loans</a>
-        <a href="add-funds.html">Add funds</a>
-        <a href="withdraw.html">Withdraw</a>
-        <a href="activity.html">Activity</a>
-        <a href="analysis.html">Analysis</a>
-        <a href="chat.html">Chat</a>
-        <a href="profile.html">Profile</a>
-      </nav>
 
       <div class="px-[12px] lg:px-[16px] py-[16px] flex-grow-1 cz-dashboard-content">
         <div class="cz-mobile-actions" aria-label="Quick actions">
@@ -593,7 +619,7 @@
                 <span>1 ETH = 2144.64 USDT ($)</span>
                 <span>FEE - 12.5</span>
               </div>
-              <button class="cz-btn w-100 mt-[12px] h-[34px] rounded-[8px] bg-[#2f5bff] hover:bg-[#2a51e6] border-0 text-[12.5px] text-white">Swap</button>
+              <button class="cz-btn w-100 mt-[12px] h-[34px] rounded-[8px] bg-[#2fbf71] hover:bg-[#27a964] border-0 text-[12.5px] text-[#07140c]">Swap</button>
             </section>
 
             <!-- Top Movers -->
@@ -645,5 +671,6 @@
 
   <!-- Bootstrap JS (optional, for dropdowns/tooltips) -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="app-pages.js"></script>
 </body>
 </html>
