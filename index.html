@@ -80,7 +80,13 @@
       from { opacity: 0; filter: blur(3px); }
       to { opacity: 1; filter: blur(0); }
     }
+    @keyframes cz-text-enter {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
     .cz-root main > header { animation: cz-enter 420ms cubic-bezier(.2, .75, .25, 1) both; }
+    .cz-root main > header h1,
+    .cz-root main > header .text-white { animation: cz-text-enter 420ms cubic-bezier(.2, .75, .25, 1) 90ms both; }
     .cz-root .cz-dashboard-content > * { animation: cz-enter 460ms cubic-bezier(.2, .75, .25, 1) both; }
     .cz-root .cz-dashboard-content > :nth-child(2) { animation-delay: 55ms; }
     .cz-root .cz-dashboard-content > :nth-child(3) { animation-delay: 110ms; }
@@ -96,9 +102,20 @@
     .cz-root .row.g-3 > div:nth-child(3) > div > section { animation-delay: 110ms; }
     .cz-root .row.g-3 > div:nth-child(4) > :is(div, section),
     .cz-root .row.g-3 > div:nth-child(4) > div > section { animation-delay: 165ms; }
+    .cz-root .cz-stat-grid > div > div > div:first-child { animation: cz-text-enter 420ms cubic-bezier(.2, .75, .25, 1) 90ms both; }
+    .cz-root .cz-stat-grid > div > div > p { animation: cz-text-enter 420ms cubic-bezier(.2, .75, .25, 1) 145ms both; }
+    .cz-root .cz-stat-grid > div > div > div:last-child { animation: cz-text-enter 420ms cubic-bezier(.2, .75, .25, 1) 200ms both; }
+    .cz-root .cz-recent-transactions h2,
+    .cz-root .cz-recent-transactions .table-responsive { animation: cz-enter 440ms cubic-bezier(.2, .75, .25, 1) 100ms both; }
+    .cz-root .cz-recent-transactions tbody tr { animation: cz-text-enter 420ms cubic-bezier(.2, .75, .25, 1) both; }
+    .cz-root .cz-recent-transactions tbody tr:nth-child(2) { animation-delay: 70ms; }
+    .cz-root .cz-recent-transactions tbody tr:nth-child(3) { animation-delay: 140ms; }
+    .cz-root .cz-recent-transactions tbody tr:nth-child(4) { animation-delay: 210ms; }
+    .cz-root .cz-recent-transactions tbody tr:nth-child(5) { animation-delay: 280ms; }
     @media (hover: hover) and (prefers-reduced-motion: no-preference) {
       .cz-root .row.g-3 > div > :is(div, section):hover,
       .cz-root .row.g-3 > div > div > section:hover { transform: translateY(-3px); border-color: #2fbf7166; box-shadow: 0 12px 30px #0005; }
+      .cz-root .cz-recent-transactions tbody tr:hover { background: #ffffff08; }
       .cz-root .cz-btn:not(:disabled):hover { transform: translateY(-2px); box-shadow: 0 6px 16px #0004; }
       .cz-root .cz-mobile-actions a:hover { transform: translateY(-2px); box-shadow: 0 6px 16px #0004; }
     }
@@ -300,7 +317,7 @@
         </div>
 
         <!-- Stat cards -->
-        <div class="row g-3">
+        <div class="row g-3 cz-stat-grid">
           <div class="col-6 col-xl-3">
             <div class="bg-[#151515] rounded-[14px] p-[14px] h-100">
               <div class="d-flex align-items-center gap-[12px]">
@@ -449,7 +466,7 @@
             </section>
 
             <!-- Recent transactions -->
-            <section class="bg-[#151515] rounded-[14px] p-[14px] flex-grow-1">
+            <section class="bg-[#151515] rounded-[14px] p-[14px] flex-grow-1 cz-recent-transactions">
               <div class="d-flex flex-wrap align-items-center justify-content-between gap-[10px]">
                 <h2 class="text-[15px] font-normal tracking-[-0.02em] text-white">Recent transactions</h2>
                 <div class="d-flex align-items-center gap-[12px]">
