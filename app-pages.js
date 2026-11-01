@@ -1,7 +1,7 @@
 (() => {
   const navGroups = [
     ["OVERVIEW", [
-      ["Dashboard", "index.html", '<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/>'],
+      ["Dashboard", "dashboard.html", '<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/>'],
       ["Opportunities", "opportunities.html", '<path d="M4 17 10 11l4 4 6-8"/><path d="M14 7h6v6"/>'],
       ["Investment details", "investment-detail.html", '<circle cx="11" cy="11" r="7"/><path d="m20 20-4-4M11 8v6m-3-3h6"/>'],
       ["Analysis", "analysis.html", '<path d="M4 20V4m0 16h16M7 15l4-5 3 2 5-7"/>']
@@ -71,7 +71,7 @@
   sidebar.className = "sidebar";
   sidebar.id = "primary-sidebar";
   sidebar.setAttribute("aria-label", "Primary navigation");
-  sidebar.innerHTML = `<a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="#2fbf71"><path d="M12 3.2l3 3-3 3-3-3z"/><path d="M6.2 9l3 3-3 3-3-3z"/><path d="M17.8 9l3 3-3 3-3-3z"/><path d="M12 14.8l3 3-3 3-3-3z"/></svg></span><span class="brand-name">Cladvest</span></a><nav class="nav-sections" aria-label="Primary navigation">${navMarkup}</nav><div class="sidebar-foot"><a class="profile-link" href="profile.html"><span class="avatar">OH</span><span class="profile-meta"><strong>Oripio Hossain</strong><small>Account owner</small></span></a></div>`;
+  sidebar.innerHTML = `<a class="brand" href="dashboard.html"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="#2fbf71"><path d="M12 3.2l3 3-3 3-3-3z"/><path d="M6.2 9l3 3-3 3-3-3z"/><path d="M17.8 9l3 3-3 3-3-3z"/><path d="M12 14.8l3 3-3 3-3-3z"/></svg></span><span class="brand-name">Cladvest</span></a><nav class="nav-sections" aria-label="Primary navigation">${navMarkup}</nav><div class="sidebar-foot"><a class="profile-link" href="profile.html"><span class="avatar">OH</span><span class="profile-meta"><strong>Oripio Hossain</strong><small>Account owner</small></span></a></div>`;
 
   const shell = document.createElement("div");
   shell.className = "app-shell";

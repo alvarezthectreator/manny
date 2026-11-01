@@ -1,0 +1,29 @@
+.login-page {
+  --site-bg: #0a0a0a;
+  --site-panel: #141414;
+  --site-line: #292929;
+  --site-muted: #a8a8a8;
+  --site-lime: #2fbf71;
+  --site-green: #3fcf7d;
+  background-color: #0a0a0a;
+  background-image: radial-gradient(ellipse at 50% 25%, #2fbf7114, transparent 38%), linear-gradient(#ffffff03 1px, transparent 1px), linear-gradient(90deg, #ffffff03 1px, transparent 1px);
+  background-size: auto, 64px 64px, 64px 64px;
+}
+.login-page .site-header { border-color: #2a2a2a; }
+.login-page .brand-symbol, .login-page .button-accent { background: #2fbf71; color: #07140c; }
+.login-page .brand-symbol { border-radius: 7px; }
+.login-page .button-accent:hover { background: #3fcf7d; }
+.login-page .login-panel { border-color: #2d342f; background: #141414; box-shadow: 0 25px 80px #0009; animation: auth-enter 520ms cubic-bezier(.2,.75,.25,1) both; }
+.login-page .field input { border-color: #303630; background: #0c0d0c; }
+.login-page .field input:focus { border-color: #2fbf71; box-shadow: 0 0 0 2px #2fbf7130; }
+.login-page .demo-note { border-color: #244331; background: #101a14; color: #c5f0d7; }
+.login-page .signup-prompt a { color: #3fcf7d; }
+.login-page .login-submit { box-shadow: 0 8px 24px #2fbf711c; }
+.login-page .login-submit:hover { background: #3fcf7d; }
+@keyframes auth-enter {
+  from { opacity: 0; transform: translateY(18px) scale(.985); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .login-page .login-panel { animation: none; }
+}
