@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Opportunities | Coinza Demo</title>
+  <style>
+    @layer theme, base, bootstrap, components, utilities;
+    @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap");
+    @import url("https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css") layer(bootstrap);
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="app-pages.css" />
+</head>
+<body data-page="Opportunities">
+  <div id="app"><div class="page-body">
+    <div class="page-heading"><div><div class="eyebrow">Explore</div><h1>Investment opportunities</h1><p>Browse illustrative opportunities in this demo. Values and availability are not live offers.</p></div><a class="button button-primary" href="add-funds.html">Add funds</a></div>
+    <div class="notice notice-blue" style="margin-bottom:16px">Demo only. Tesla is shown as a public-company example. SpaceX is private; this page does not offer access to SpaceX shares.</div>
+    <section class="panel">
+      <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-3"><h2 class="panel-title mb-0">Browse opportunities</h2><input class="control" data-filter-input type="search" placeholder="Search companies or symbols" aria-label="Search opportunities" style="max-width:280px" /></div>
+      <div class="table-wrap"><table class="data-table"><thead><tr><th>Company</th><th>Type</th><th>Demo price</th><th>Demo change</th><th>Category</th><th></th></tr></thead><tbody>
+        <tr data-filter-item><td><div class="list-primary"><span class="asset-icon">T</span><span><span class="list-title">Tesla</span><br /><span class="list-subtitle">TSLA</span></span></div></td><td>Public stock</td><td>$248.50</td><td class="text-green">+2.4%</td><td>Automotive</td><td><a class="button" href="analysis.html">View analysis</a></td></tr>
+        <tr data-filter-item><td><div class="list-primary"><span class="asset-icon">S</span><span><span class="list-title">SpaceX</span><br /><span class="list-subtitle">Private company</span></span></div></td><td>Private company</td><td>Not quoted</td><td class="muted">N/A</td><td>Aerospace</td><td><a class="button" href="analysis.html">View overview</a></td></tr>
+        <tr data-filter-item><td><div class="list-primary"><span class="asset-icon">N</span><span><span class="list-title">NVIDIA</span><br /><span class="list-subtitle">NVDA</span></span></div></td><td>Public stock</td><td>$142.20</td><td class="text-green">+1.1%</td><td>Technology</td><td><a class="button" href="analysis.html">View analysis</a></td></tr>
+      </tbody></table></div>
+      <p class="disclaimer">Illustrative data only, not an offer, recommendation, or investment advice. Private investments can have additional eligibility and liquidity restrictions.</p>
+    </section>
+  </div></div>
+  <script src="app-pages.js"></script>
+</body>
+</html>

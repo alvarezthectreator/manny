@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Withdraw | Coinza Demo</title>
+  <style>
+    @layer theme, base, bootstrap, components, utilities;
+    @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap");
+    @import url("https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css") layer(bootstrap);
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="app-pages.css" />
+</head>
+<body data-page="Withdraw">
+  <div id="app"><div class="page-body">
+    <div class="page-heading"><div><div class="eyebrow">Move money out</div><h1>Withdraw</h1><p>Try a simulated withdrawal from your available demo cash balance.</p></div><span class="demo-badge">Simulation only</span></div>
+    <div class="form-grid">
+      <section class="panel"><h2 class="panel-title">Withdrawal details</h2>
+        <form data-demo-form="withdraw">
+          <div class="field"><label for="withdraw-method">Destination method</label><select class="control" id="withdraw-method" name="method"><option>Bank transfer</option><option>Cash App</option><option>Zelle</option><option>Crypto wallet (simulated)</option></select></div>
+          <div class="field"><label for="withdraw-amount">Amount (USD)</label><div class="inline-field"><span class="pill">USD</span><input class="control" id="withdraw-amount" name="amount" type="number" min="1" step="0.01" placeholder="0.00" required /></div><span class="hint">Available demo balance: <strong data-available-balance>$12,450.00</strong></span></div>
+          <div class="field"><label for="withdraw-note">Destination label <span class="muted">(optional)</span></label><input class="control" id="withdraw-note" type="text" placeholder="e.g. My demo checking account" /></div>
+          <div class="notice">Demo only. No bank, Cash App, Zelle, or crypto transfer will be initiated.</div>
+          <div class="button-row" style="margin-top:16px"><button class="button button-primary" type="submit">Simulate withdrawal</button><a class="button" href="activity.html">View activity</a></div>
+        </form>
+      </section>
+      <aside class="panel"><h2 class="panel-title">Before you continue</h2><div class="summary-list"><div class="summary-row"><span>Available demo cash</span><strong data-demo-cash>$12,450.00</strong></div><div class="summary-row"><span>Demo processing time</span><strong>Instant</strong></div><div class="summary-row"><span>Demo fee</span><strong>$0.00</strong></div></div><div class="divider"></div><p class="hint">The amount is deducted from the sample cash balance after you simulate the withdrawal. You can reset the demo by clearing this site's local storage.</p></aside>
+    </div>
+  </div></div>
+  <script src="app-pages.js"></script>
+</body>
+</html>

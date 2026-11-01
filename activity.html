@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Activity | Coinza Demo</title>
+  <style>
+    @layer theme, base, bootstrap, components, utilities;
+    @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap");
+    @import url("https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css") layer(bootstrap);
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="app-pages.css" />
+</head>
+<body data-page="Activity">
+  <div id="app"><div class="page-body">
+    <div class="page-heading"><div><div class="eyebrow">Account history</div><h1>Activity</h1><p>Review simulated deposits, withdrawals, and investment activity.</p></div><a class="button button-primary" href="add-funds.html">Add funds</a></div>
+    <section class="panel"><div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-3"><h2 class="panel-title mb-0">Transactions</h2><input class="control" data-filter-input type="search" placeholder="Search activity" aria-label="Search activity" style="max-width:260px" /></div>
+      <div class="table-wrap"><table class="data-table"><thead><tr><th>Date</th><th>Type</th><th>Method / detail</th><th>Amount</th><th>Status</th></tr></thead><tbody data-transaction-list><tr><td>Oct 30, 2026</td><td>Deposit</td><td>Bank transfer</td><td>$1,250.00</td><td><span class="status status-demo">Demo completed</span></td></tr></tbody></table></div>
+      <p class="disclaimer">History is stored in this browser only. It is not a payment or brokerage statement.</p>
+    </section>
+  </div></div>
+  <script src="app-pages.js"></script>
+</body>
+</html>
