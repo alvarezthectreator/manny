@@ -14,8 +14,8 @@
 </head>
 <body data-page="Goals">
   <div id="app"><div class="page-body">
-    <div class="page-heading"><div><div class="eyebrow">Planning</div><h1>Goals & recurring plans</h1><p>Set a target and preview a regular investing schedule using sample data.</p></div><span class="pill">No trades execute</span></div>
-    <div class="notice notice-green" style="margin-bottom:16px">Goals and recurring plans are saved in this browser only. Scheduled investments are visual reminders; no money moves and no trades execute.</div>
+    <div class="page-heading"><div><div class="eyebrow">Planning</div><h1>Goals & recurring plans</h1><p>Track account goals and save illustrative investment schedules.</p></div><span class="pill">No trades execute</span></div>
+    <div class="notice notice-green" style="margin-bottom:16px">Goals and recurring plans are stored on your account. Scheduled investments are reminders; no money moves and no trades execute.</div>
     <div class="form-grid">
       <section class="panel"><h2 class="panel-title">Create a goal</h2><form data-goal-form>
         <div class="field"><label for="goal-name">Goal name</label><input class="control" id="goal-name" name="goal-name" type="text" maxlength="60" placeholder="e.g. Long-term portfolio" required /></div>
@@ -24,15 +24,17 @@
         <button class="button button-primary" type="submit">Save goal</button>
       </form></section>
       <section class="panel"><h2 class="panel-title">Create a recurring plan</h2><form data-recurring-form>
-        <div class="field"><label for="plan-asset">Investment example</label><select class="control" id="plan-asset" name="asset"><option>Tesla (TSLA)</option><option>NVIDIA (NVDA)</option><option>Bitcoin (BTC)</option></select></div>
+        <div class="field"><label for="plan-asset">Investment example</label><select class="control" id="plan-asset" name="asset"><option value="TSLA">Tesla (TSLA)</option><option value="NVDA">NVIDIA (NVDA)</option><option value="BTC">Bitcoin (BTC)</option></select></div>
         <div class="field"><label for="plan-amount">Amount per interval (USD)</label><input class="control" id="plan-amount" name="plan-amount" type="number" min="10" max="10000" step="5" value="50" required /></div>
-        <div class="field"><label for="plan-frequency">Frequency</label><select class="control" id="plan-frequency" name="frequency"><option>Weekly</option><option>Biweekly</option><option selected>Monthly</option></select></div>
+        <div class="field"><label for="plan-frequency">Frequency</label><select class="control" id="plan-frequency" name="frequency"><option value="daily">Daily</option><option value="weekly">Weekly</option><option value="monthly" selected>Monthly</option><option value="semiannual">Biannually</option></select></div>
         <button class="button button-primary" type="submit">Save schedule</button>
       </form></section>
     </div>
     <section class="panel" style="margin-top:16px"><h2 class="panel-title">Your goals</h2><div class="goal-list" data-goal-list></div></section>
     <section class="panel"><h2 class="panel-title">Recurring plans</h2><div data-recurring-list></div><p class="disclaimer">Recurring investing can involve market risk and fees. This page does not place orders or promise investment outcomes.</p></section>
   </div></div>
+  <script src="api-client.js"></script>
   <script src="app-pages.js"></script>
+  <script src="auth-guard.js"></script>
 </body>
 </html>

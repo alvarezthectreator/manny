@@ -1,0 +1,8 @@
+<?php
+
+return [
+    // Set to false to disable notifications locally.
+    'enabled' => true,
+    'from' => 'no-reply@example.com',
+    'from_name' => 'Cladvest',
+];

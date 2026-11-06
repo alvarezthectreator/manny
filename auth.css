@@ -13,9 +13,12 @@
 .login-page .brand-symbol, .login-page .button-accent { background: #2fbf71; color: #07140c; }
 .login-page .brand-symbol { border-radius: 7px; }
 .login-page .button-accent:hover { background: #3fcf7d; }
-.login-page .login-panel { border-color: #2d342f; background: #141414; box-shadow: 0 25px 80px #0009; animation: auth-enter 520ms cubic-bezier(.2,.75,.25,1) both; }
-.login-page .field input { border-color: #303630; background: #0c0d0c; }
-.login-page .field input:focus { border-color: #2fbf71; box-shadow: 0 0 0 2px #2fbf7130; }
+.login-page .login-panel { border-color: #2d342f; background: #141414; box-shadow: 0 25px 80px #0009; animation: auth-enter 1400ms cubic-bezier(.2,.75,.25,1) both; }
+.login-page .button, .login-page .site-logo, .login-page .back-link { transition-duration: 700ms; }
+.login-page .field input, .login-page .field select { width: 100%; min-height: 43px; padding: 0 12px; border: 1px solid #303630; border-radius: 4px; background: #0c0d0c; color: white; font: inherit; font-size: 12px; }
+.login-page .field input:focus, .login-page .field select:focus { border-color: #2fbf71; outline: none; box-shadow: 0 0 0 2px #2fbf7130; }
+.login-page .field select { color-scheme: dark; }
+.login-page .demo-note[hidden] { display: none; }
 .login-page .demo-note { border-color: #244331; background: #101a14; color: #c5f0d7; }
 .login-page .signup-prompt a { color: #3fcf7d; }
 .login-page .login-submit { box-shadow: 0 8px 24px #2fbf711c; }

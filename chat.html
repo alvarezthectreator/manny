@@ -14,12 +14,14 @@
 </head>
 <body data-page="Chat">
   <div id="app"><div class="page-body">
-    <div class="page-heading"><div><div class="eyebrow">Help desk</div><h1>Chat</h1><p>Send a message in this simulated support conversation.</p></div><span class="status status-simulated">Automated assistant</span></div>
+    <div class="page-heading"><div><div class="eyebrow">Help desk</div><h1>Chat</h1><p>Send a message to the support inbox.</p></div><span class="status status-simulated">Replies are not live</span></div>
     <section class="panel chat-layout">
-      <aside class="chat-rail"><h2 class="panel-title">Conversations</h2><div class="list-row"><div><div class="list-title">Support preview</div><div class="list-subtitle">Just now</div></div><span class="status status-simulated">Open</span></div><p class="hint" style="margin-top:12px">This simulated chat is not monitored by a support team.</p></aside>
-      <div class="chat-thread"><div class="d-flex align-items-center justify-content-between"><div><div class="list-title">Cladvest support</div><div class="list-subtitle">Automated sample responses</div></div><span class="pill">Automated preview</span></div><div class="chat-messages" data-chat-messages aria-live="polite"><div class="chat-bubble">Hi Oripio. Tell us what you need help with. Replies are automated.</div></div><form class="chat-compose" data-chat-form><label class="visually-hidden" for="chat-message">Message</label><input class="control" id="chat-message" name="message" type="text" maxlength="500" placeholder="Write a message..." required /><button class="button button-primary" type="submit">Send</button></form></div>
+    <aside class="chat-rail"><div class="d-flex align-items-center justify-content-between gap-2"><h2 class="panel-title">Conversations</h2><button class="button" type="button" data-chat-new>New</button></div><div data-chat-conversations><p class="empty-state">Loading conversations...</p></div><p class="hint" style="margin-top:12px">Messages are saved to your account. Replies are not monitored here.</p></aside>
+    <div class="chat-thread"><div class="d-flex align-items-center justify-content-between"><div><div class="list-title" data-chat-subject>Choose a conversation</div><div class="list-subtitle" data-chat-status>Support inbox</div></div><span class="pill">No live agent</span></div><div class="chat-messages" data-chat-messages aria-live="polite"><p class="empty-state">Select a conversation or start a new one.</p></div><form class="chat-compose" data-chat-form><label class="visually-hidden" for="chat-message">Message</label><input class="control" id="chat-message" name="message" type="text" maxlength="5000" placeholder="Write a message..." required /><button class="button button-primary" type="submit">Send</button></form></div>
     </section>
   </div></div>
+  <script src="api-client.js"></script>
   <script src="app-pages.js"></script>
+  <script src="auth-guard.js"></script>
 </body>
 </html>

@@ -14,20 +14,22 @@
 </head>
 <body data-page="Withdraw">
   <div id="app"><div class="page-body">
-    <div class="page-heading"><div><div class="eyebrow">Move money out</div><h1>Withdraw</h1><p>Preview a withdrawal from your available cash balance.</p></div><span class="pill">Simulation only</span></div>
+    <div class="page-heading"><div><div class="eyebrow">Move money out</div><h1>Withdraw</h1><p>Submit a withdrawal request for administrator review.</p></div><span class="pill">Review required</span></div>
     <div class="form-grid">
       <section class="panel"><h2 class="panel-title">Withdrawal details</h2>
         <form data-funds-action="withdraw">
           <div class="field"><label for="withdraw-method">Destination method</label><select class="control" id="withdraw-method" name="method"><option>Bank transfer</option><option>Cash App</option><option>Zelle</option><option>Crypto wallet (simulated)</option></select></div>
           <div class="field"><label for="withdraw-amount">Amount (USD)</label><div class="inline-field"><span class="pill">USD</span><input class="control" id="withdraw-amount" name="amount" type="number" min="1" step="0.01" placeholder="0.00" required /></div><span class="hint">Available balance: <strong data-available-balance>$12,450.00</strong></span></div>
           <div class="field"><label for="withdraw-note">Destination label <span class="muted">(optional)</span></label><input class="control" id="withdraw-note" type="text" placeholder="e.g. My checking account" /></div>
-          <div class="notice">Simulation only. No bank, Cash App, Zelle, or crypto transfer will be initiated.</div>
-          <div class="button-row" style="margin-top:16px"><button class="button button-primary" type="submit">Simulate withdrawal</button><a class="button" href="activity.html">View activity</a></div>
+          <div class="field"><label for="withdraw-date">Transaction date</label><input class="control" id="withdraw-date" name="transaction_date" type="date" required /></div>
+          <div class="button-row" style="margin-top:16px"><button class="button button-primary" type="submit">Request withdrawal</button><a class="button" href="activity.html">View activity</a></div>
         </form>
       </section>
-      <aside class="panel"><h2 class="panel-title">Before you continue</h2><div class="summary-list"><div class="summary-row"><span>Available cash</span><strong data-account-cash>$12,450.00</strong></div><div class="summary-row"><span>Estimated processing time</span><strong>Instant</strong></div><div class="summary-row"><span>Example fee</span><strong>$0.00</strong></div></div><div class="divider"></div><p class="hint">The amount is deducted from the sample cash balance after you simulate the withdrawal. Account data is stored in this browser.</p></aside>
+      <aside class="panel"><h2 class="panel-title">Before you continue</h2><div class="summary-list"><div class="summary-row"><span>Available cash</span><strong data-account-cash>$0.00</strong></div><div class="summary-row"><span>Processing</span><strong>Administrator review</strong></div><div class="summary-row"><span>Example fee</span><strong>$0.00</strong></div></div><div class="divider"></div><p class="hint">Cash is deducted only when an administrator marks a verified external payout complete. Pending requests do not reserve your balance.</p></aside>
     </div>
   </div></div>
+  <script src="api-client.js"></script>
   <script src="app-pages.js"></script>
+  <script src="auth-guard.js"></script>
 </body>
 </html>

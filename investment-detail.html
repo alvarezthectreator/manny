@@ -18,27 +18,25 @@
       <div><div class="eyebrow">Research</div><h1>Investment details</h1><p>Compare sample company information and review risks before exploring an opportunity.</p></div>
       <a class="button" href="opportunities.html">All opportunities</a>
     </div>
-    <div class="notice notice-green" style="margin-bottom:16px"><strong>Sample snapshot: Oct 30, 2026, 4:00 p.m. ET.</strong> All prices and performance figures below are fictional examples for this interface, not market data or an offer.</div>
     <section class="panel">
+      <div class="field investment-asset-picker"><label for="investment-asset-select">Select an investment</label><select class="control" id="investment-asset-select" data-investment-asset><option value="">Choose an active opportunity</option></select></div>
       <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
-        <div class="list-primary"><span class="asset-icon">T</span><div><div class="list-title">Tesla, Inc. <span class="pill">TSLA</span></div><div class="list-subtitle">Public-company example · Consumer discretionary / automotive</div></div></div>
-        <a class="button button-primary" href="goals.html">Plan an investment goal</a>
+        <div class="list-primary"><span class="asset-icon" data-asset-initial>—</span><div><div class="list-title"><span data-asset-name>Select an investment</span> <span class="pill" data-asset-symbol>—</span></div><div class="list-subtitle" data-asset-description>Choose an asset to view its details.</div></div></div>
+        <div class="button-row"><button class="button" type="button" data-asset-watchlist disabled>Add to watchlist</button><a class="button button-primary" href="opportunities.html">Back to opportunities</a></div>
       </div>
-      <div class="stat-grid" style="margin-top:18px;margin-bottom:0">
-        <div class="stat-card"><span class="stat-label">Sample price</span><strong class="stat-value">$248.50</strong><span class="stat-note">Illustrative only</span></div>
-        <div class="stat-card"><span class="stat-label">Sample 1-year change</span><strong class="stat-value text-green">+17.2%</strong><span class="stat-note">Fictional return</span></div>
-        <div class="stat-card"><span class="stat-label">Market status</span><strong class="stat-value" style="font-size:16px">Public listing</strong><span class="stat-note">Example classification</span></div>
-        <div class="stat-card"><span class="stat-label">Data timestamp</span><strong class="stat-value" style="font-size:14px">Oct 30, 2026</strong><span class="stat-note">4:00 p.m. ET · Sample</span></div>
+      <div class="stat-grid asset-detail-stats" style="margin-top:18px;margin-bottom:0">
+        <div class="stat-card"><span class="stat-label">Recorded price</span><strong class="stat-value" data-asset-price>Select an asset</strong><span class="stat-note" data-asset-source></span></div>
+        <div class="stat-card"><span class="stat-label">Available cash</span><strong class="stat-value" data-asset-balance>Loading...</strong><span class="stat-note">From your account ledger</span></div>
+        <div class="stat-card"><span class="stat-label">Prior recorded quote</span><strong class="stat-value" data-asset-prior-price>Select an asset</strong><span class="stat-note">Most recent earlier stored quote</span></div>
+        <div class="stat-card"><span class="stat-label">Asset type</span><strong class="stat-value" style="font-size:16px" data-asset-type>Select an asset</strong><span class="stat-note" data-asset-exchange></span></div>
+        <div class="stat-card"><span class="stat-label">Latest quote time</span><strong class="stat-value" style="font-size:14px" data-asset-quoted-at>Unavailable</strong><span class="stat-note">Stored database timestamp</span></div>
       </div>
     </section>
+    <section class="panel investment-entry" style="margin-top:16px"><div><h2 class="panel-title">Start an investment schedule</h2><p class="hint">Choose an investment first, then set the amount and schedule. This saves a recurring reminder only; it does not reserve cash or execute trades.</p><div class="investment-balance"><span>Available cash</span><strong data-investment-available>Loading...</strong><a class="button" href="add-funds.html">Add funds</a></div><div class="investment-estimate"><span>Estimated units at recorded quote</span><strong data-investment-estimate>Select an investment first</strong></div></div><form data-investment-order-form><input type="hidden" name="symbol" value="" /><label class="field" for="investment-amount">Amount per schedule (USD)<input class="control" id="investment-amount" name="amount" type="number" min="1" step="0.01" required disabled /></label><div class="field"><label for="investment-frequency">Frequency</label><select class="control" id="investment-frequency" name="frequency" disabled><option value="daily">Daily</option><option value="weekly">Weekly</option><option value="monthly" selected>Monthly</option><option value="semiannual">Biannually</option></select></div><p class="hint" data-investment-quote>Select an investment to view its recorded quote.</p><button class="button button-primary" type="submit" disabled>Start investment</button></form><div class="investment-drafts"><h3 class="panel-title">Investment schedules</h3><div data-investment-schedules><p class="empty-state">Loading investment schedules...</p></div></div></section>
     <div class="form-grid" style="margin-top:16px">
       <section class="panel"><h2 class="panel-title">Company comparison <span class="small muted">Illustrative examples</span></h2>
-        <div class="table-wrap"><table class="data-table"><thead><tr><th>Company</th><th>Market status</th><th>Sample price</th><th>Sample 1Y change</th><th>Snapshot</th></tr></thead><tbody>
-          <tr><td><strong>Tesla</strong><br /><span class="muted small">TSLA</span></td><td>Public-company example</td><td>$248.50</td><td class="text-green">+17.2%</td><td>Oct 30, 2026</td></tr>
-          <tr><td><strong>NVIDIA</strong><br /><span class="muted small">NVDA</span></td><td>Public-company example</td><td>$142.20</td><td class="text-green">+21.4%</td><td>Oct 30, 2026</td></tr>
-          <tr><td><strong>SpaceX</strong><br /><span class="muted small">No public ticker</span></td><td>Private company</td><td>Not quoted</td><td class="muted">Not available</td><td>Not a public quote</td></tr>
-        </tbody></table></div>
-        <p class="disclaimer">Sample figures are invented to show this comparison layout. A private company does not have a generally available public-market quote.</p>
+        <div class="table-wrap"><table class="data-table"><thead><tr><th>Asset</th><th>Type</th><th>Recorded price</th><th>Change vs prior quote</th><th>Quote time</th></tr></thead><tbody data-asset-comparison><tr><td colspan="5" class="empty-state">Loading recorded quotes...</td></tr></tbody></table></div>
+        <p class="disclaimer">A private company does not have a generally available public-market quote. Stored values are not live market data.</p>
       </section>
       <section class="panel"><h2 class="panel-title">Risks to consider</h2>
         <div class="list-row"><div><div class="list-title">Market risk</div><div class="list-subtitle">Share prices can rise or fall, including the full amount invested.</div></div></div>
@@ -49,6 +47,8 @@
       </section>
     </div>
   </div></div>
-  <script src="app-pages.js"></script>
+  <script src="api-client.js"></script>
+  <script src="app-pages.js?v=20261106-investment-picker"></script>
+  <script src="auth-guard.js"></script>
 </body>
 </html>

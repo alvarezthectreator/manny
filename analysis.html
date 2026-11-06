@@ -14,19 +14,20 @@
 </head>
 <body data-page="Analysis">
   <div id="app"><div class="page-body">
-    <div class="page-heading"><div><div class="eyebrow">Research workspace</div><h1>Analysis</h1><p>Illustrative company and market context for exploring a sample portfolio.</p></div><span class="pill">Sample data • Not live</span></div>
+    <div class="page-heading"><div><div class="eyebrow">Research workspace</div><h1>Analysis</h1><p>Stored quote snapshots alongside clearly labeled illustrative chart content.</p></div><span class="pill">Stored data · Demo quotes</span></div>
     <div class="stat-grid">
-      <div class="stat-card"><span class="stat-label">Tesla · TSLA</span><strong class="stat-value">$248.50</strong><span class="stat-note text-green">+2.4% sample day</span></div>
-      <div class="stat-card"><span class="stat-label">NVIDIA · NVDA</span><strong class="stat-value">$142.20</strong><span class="stat-note text-green">+1.1% sample day</span></div>
-      <div class="stat-card"><span class="stat-label">Bitcoin · BTC</span><strong class="stat-value">$68,420</strong><span class="stat-note text-red">-0.8% sample day</span></div>
-      <div class="stat-card"><span class="stat-label">SpaceX</span><strong class="stat-value">Private</strong><span class="stat-note">No public-market quote</span></div>
+      <div class="stat-card" data-market-summary="TSLA"><span class="stat-label">Tesla · TSLA</span><strong class="stat-value" data-market-price>Loading...</strong><span class="stat-note" data-market-change>Loading quote...</span></div>
+      <div class="stat-card" data-market-summary="NVDA"><span class="stat-label">NVIDIA · NVDA</span><strong class="stat-value" data-market-price>Loading...</strong><span class="stat-note" data-market-change>Loading quote...</span></div>
+      <div class="stat-card" data-market-summary="BTC"><span class="stat-label">Bitcoin · BTC</span><strong class="stat-value" data-market-price>Loading...</strong><span class="stat-note" data-market-change>Loading quote...</span></div>
+      <div class="stat-card" data-market-summary="SPACEX"><span class="stat-label">SpaceX</span><strong class="stat-value" data-market-price>Loading...</strong><span class="stat-note" data-market-change>Loading quote...</span></div>
     </div>
     <div class="form-grid">
       <section class="panel"><div class="d-flex align-items-center justify-content-between gap-3"><h2 class="panel-title">Tesla sample performance</h2><span class="pill">TSLA</span></div><div class="chart-box" aria-label="Illustrative Tesla performance chart"><svg viewBox="0 0 900 190" preserveAspectRatio="none" role="img" aria-label="Sample price trend"><defs><linearGradient id="area" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2fbf71" stop-opacity=".32"/><stop offset="1" stop-color="#2fbf71" stop-opacity="0"/></linearGradient></defs><path d="M0 148 L80 136 L150 151 L220 108 L290 125 L365 89 L430 112 L500 76 L570 91 L650 48 L720 69 L790 33 L900 18 L900 190 L0 190Z" fill="url(#area)"/><path d="M0 148 L80 136 L150 151 L220 108 L290 125 L365 89 L430 112 L500 76 L570 91 L650 48 L720 69 L790 33 L900 18" fill="none" stroke="#2fbf71" stroke-width="3" vector-effect="non-scaling-stroke"/></svg></div><div class="d-flex justify-content-between muted small mt-2"><span>Oct 01</span><span>Oct 08</span><span>Oct 15</span><span>Oct 22</span><span>Oct 30</span></div></section>
       <section class="panel"><h2 class="panel-title">Company overview</h2><div class="summary-list"><div class="summary-row"><span>Company</span><strong>Tesla, Inc.</strong></div><div class="summary-row"><span>Symbol</span><strong>TSLA</strong></div><div class="summary-row"><span>Asset type</span><strong>Public stock example</strong></div><div class="summary-row"><span>Quote timestamp</span><strong>Illustrative</strong></div></div><div class="divider"></div><p class="hint">SpaceX is privately held and does not have a standard public ticker or public-market quote. Any private-market access would require a separately qualified and compliant offering.</p><div class="button-row" style="margin-top:15px"><a class="button" href="opportunities.html">All opportunities</a><a class="button button-primary" href="portfolio.html">View portfolio</a></div></section>
     </div>
-    <p class="disclaimer">All charts, quotes, and company metrics on this page are fictional sample content, not financial advice or a recommendation.</p>
   </div></div>
+  <script src="api-client.js"></script>
   <script src="app-pages.js"></script>
+  <script src="auth-guard.js"></script>
 </body>
 </html>

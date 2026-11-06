@@ -2,9 +2,9 @@
   opacity: 0;
   filter: blur(3px);
   transform: translateY(22px) scale(.985);
-  transition: opacity 650ms cubic-bezier(.2,.75,.25,1) var(--reveal-delay, 0ms),
-    filter 650ms cubic-bezier(.2,.75,.25,1) var(--reveal-delay, 0ms),
-    transform 650ms cubic-bezier(.2,.75,.25,1) var(--reveal-delay, 0ms);
+  transition: opacity 1500ms cubic-bezier(.2,.75,.25,1) var(--reveal-delay, 0ms),
+    filter 1500ms cubic-bezier(.2,.75,.25,1) var(--reveal-delay, 0ms),
+    transform 1500ms cubic-bezier(.2,.75,.25,1) var(--reveal-delay, 0ms);
 }
 .reveal.is-visible {
   opacity: 1;
@@ -12,7 +12,7 @@
   transform: translateY(0) scale(1);
 }
 .f-card, .plan, .k-card, .t-card, .spend-big, .map-card, .dash .card, .logo, .auth a, .btn, .arrow, .social a, .foot-col a {
-  transition: transform 220ms cubic-bezier(.2,.75,.25,1), border-color 220ms ease, box-shadow 220ms ease, background-color 180ms ease;
+  transition: transform 700ms cubic-bezier(.2,.75,.25,1), border-color 700ms ease, box-shadow 700ms ease, background-color 600ms ease;
 }
 @media (hover: hover) and (prefers-reduced-motion: no-preference) {
   .f-card:hover, .plan:hover, .t-card:hover, .spend-big:hover, .map-card:hover {
@@ -26,14 +26,14 @@
   .logo:hover, .auth a:hover, .btn:hover, .arrow:hover, .social a:hover { transform: translateY(-2px) scale(1.04); }
   .foot-col a:hover { transform: translateX(3px); }
 }
-.logo-mark { transition: transform 240ms cubic-bezier(.2,.75,.25,1); }
+.logo-mark { transition: transform 700ms cubic-bezier(.2,.75,.25,1); }
 .logo:hover .logo-mark { transform: rotate(-8deg) scale(1.08); }
-.rating i[data-lucide="star"] { animation: star-pulse 2.8s ease-in-out infinite; }
+.rating :is(i[data-lucide="star"], svg.lucide-star) { animation: star-pulse 6s ease-in-out infinite; }
 @keyframes star-pulse {
   50% { transform: scale(1.18); filter: drop-shadow(0 0 5px #b9ec6670); }
 }
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; filter: none; transform: none; transition: none; }
-  .rating i[data-lucide="star"] { animation: none; }
+  .rating :is(i[data-lucide="star"], svg.lucide-star) { animation: none; }
   .f-card, .plan, .k-card, .t-card, .spend-big, .map-card, .dash .card, .logo, .auth a, .btn, .arrow, .social a, .foot-col a { transition: none; }
 }

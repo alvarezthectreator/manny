@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin workspace | Cladvest</title>
+  <link rel="stylesheet" href="app-pages.css" />
+  <link rel="stylesheet" href="admin.css?v=20261106-withdrawal-destinations" />
+</head>
+<body data-auth-context="admin">
+  <div class="app-shell" id="admin-shell">
+    <aside class="sidebar" id="admin-sidebar" aria-label="Admin navigation">
+      <a class="brand" href="admin.html"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="#2fbf71"><path d="M12 3.2l3 3-3 3-3-3z"/><path d="M6.2 9l3 3-3 3-3-3z"/><path d="M17.8 9l3 3-3 3-3-3z"/><path d="M12 14.8l3 3-3 3-3-3z"/></svg></span><span class="brand-name">Cladvest</span></a>
+      <div class="admin-mode-label">PROTECTED ADMIN WORKSPACE</div>
+      <nav class="admin-nav" aria-label="Admin sections">
+        <button type="button" class="admin-nav-link is-active" data-view-target="overview">Overview</button>
+        <button type="button" class="admin-nav-link" data-view-target="users">Users &amp; accounts</button>
+        <button type="button" class="admin-nav-link" data-view-target="money">Deposits &amp; withdrawals</button>
+        <button type="button" class="admin-nav-link" data-view-target="payment-channels">Payment methods</button>
+        <button type="button" class="admin-nav-link" data-view-target="loans">Loan requests</button>
+        <button type="button" class="admin-nav-link" data-view-target="support">Support inbox</button>
+        <button type="button" class="admin-nav-link" data-view-target="portfolio">Portfolios</button>
+        <button type="button" class="admin-nav-link" data-view-target="opportunities">Opportunities</button>
+      </nav>
+      <div class="sidebar-foot"><div class="profile-link"><span class="avatar" data-admin-initials>AD</span><span class="profile-meta"><strong data-admin-email>Administrator</strong><small>Role-authorized account</small></span></div></div>
+    </aside>
+    <button class="sidebar-backdrop" type="button" data-admin-close aria-label="Close navigation"></button>
+    <div class="main-column">
+      <header class="topbar">
+        <div class="topbar-leading"><button class="menu-toggle" type="button" data-admin-menu aria-label="Open navigation" aria-controls="admin-sidebar" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button><div class="topbar-title"><small>Cladvest / Administration</small><strong data-admin-title>Overview</strong></div></div>
+        <div class="topbar-actions"><span class="demo-chip" data-admin-role>Loading role...</span><button class="button button-quiet" type="button" data-auth-logout>Sign out</button></div>
+      </header>
+      <main class="page-content admin-content">
+        <section class="admin-view is-visible" data-view="overview">
+          <div class="page-heading"><div><div class="eyebrow">Administration</div><h1>Overview</h1><p>Live user accounts and administrative queues.</p></div></div>
+          <div class="stat-grid admin-stat-grid"><article class="stat-card"><span class="stat-label">Users</span><strong class="stat-value" data-stat-users>0</strong><span class="stat-note">Registered accounts</span></article><article class="stat-card"><span class="stat-label">Pending money requests</span><strong class="stat-value" data-stat-money>0</strong><span class="stat-note">Deposits and withdrawals</span></article><article class="stat-card"><span class="stat-label">Loan applications</span><strong class="stat-value" data-stat-loans>0</strong><span class="stat-note">Awaiting review</span></article><article class="stat-card"><span class="stat-label">Open conversations</span><strong class="stat-value" data-stat-messages>0</strong><span class="stat-note">Support queue</span></article></div>
+          <div class="form-grid admin-overview-grid"><section class="panel"><h2 class="panel-title">Money requests</h2><div data-overview-money></div></section><section class="panel"><h2 class="panel-title">Loan requests</h2><div data-overview-loans></div></section><section class="panel admin-location-card"><div class="admin-location-summary"><h2 class="panel-title">Users by country</h2><div class="admin-location-list" data-user-locations></div></div></section></div>
+        </section>
+
+        <section class="admin-view" data-view="users" hidden>
+          <div class="page-heading"><div><div class="eyebrow">Account management</div><h1>Users &amp; accounts</h1><p>Update account identity and submit audited cash balance adjustments.</p></div><input class="control admin-search" data-user-search type="search" placeholder="Search users" aria-label="Search users" /></div>
+          <div class="admin-split"><section class="panel"><h2 class="panel-title">Users</h2><div data-user-list></div></section><section class="panel"><h2 class="panel-title">Account details</h2><form data-user-form class="admin-form"><div class="field"><span class="field-label">Account created</span><strong data-user-created>Loading...</strong></div><label class="field">First name<input class="control" name="first_name" maxlength="80" required /></label><label class="field">Last name<input class="control" name="last_name" maxlength="80" required /></label><label class="field">Email<input class="control" name="email" type="email" maxlength="254" required /></label><label class="field">Account status<select class="control" name="status"><option value="active">Active</option><option value="locked">Locked</option><option value="closed">Closed</option></select></label><label class="field">Phone country code<input class="control" name="phone_country_code" type="tel" maxlength="8" placeholder="+1" /></label><label class="field">Phone number<input class="control" name="phone_number" type="tel" maxlength="32" /></label><label class="field">Country code<input class="control" name="country_code" maxlength="2" placeholder="US" /></label><label class="field">Region<input class="control" name="region" maxlength="120" /></label><label class="field">Timezone<input class="control" name="timezone" maxlength="64" placeholder="UTC" /></label><label class="field">Locale<input class="control" name="locale" maxlength="16" placeholder="en" /></label><div class="field"><span class="field-label">Available cash</span><strong data-user-balance>Loading...</strong></div><div class="field"><span class="field-label">Investment profit / loss</span><strong data-user-profit>Loading...</strong><span class="hint">Calculated from current holdings and stored quotes.</span></div><label class="field">New cash balance (USD)<input class="control" name="balance" type="number" min="0" step="0.01" required /></label><label class="field">Set new password (optional)<input class="control" name="new_password" type="password" autocomplete="new-password" minlength="12" maxlength="4096" /></label><p class="hint admin-full-row">Passwords are stored as one-way hashes and cannot be viewed. Leave this blank to keep the current password; setting a new one signs out the user’s active sessions.</p><button class="button button-primary" type="submit">Save account changes</button></form></section></div>
+          <section id="account-investment-editors" class="panel admin-user-investments"><h2 class="panel-title">Holdings, prices &amp; profit / loss</h2><p class="hint">Edit holding quantity, cost, or stored quote. Quotes apply to every user holding that asset; profit / loss is recalculated from these values.</p><div class="admin-table-wrap"><table class="data-table"><thead><tr><th>Asset</th><th>Symbol</th><th>Quantity</th><th>Average cost</th><th>Stored quote</th><th>Profit / loss</th><th>Save</th></tr></thead><tbody data-user-position-list><tr><td colspan="7" class="empty-state">Select a user to view holdings.</td></tr></tbody></table></div><form class="admin-form admin-user-position-add" data-user-position-add><label class="field">Asset<select class="control" name="symbol" data-user-position-asset required></select></label><label class="field">Quantity<input class="control" name="quantity" type="number" min="0.000000000001" step="any" required /></label><label class="field">Average cost (USD)<input class="control" name="average_cost" type="number" min="0.0000000001" step="any" required /></label><button class="button button-primary" type="submit">Add holding</button></form></section>
+          <section class="panel admin-user-transactions"><h2 class="panel-title">User deposits and withdrawals</h2><div class="admin-table-wrap"><table class="data-table"><thead><tr><th>Date</th><th>Type</th><th>Method / detail</th><th>Amount</th><th>Status</th></tr></thead><tbody data-user-transactions><tr><td colspan="5" class="empty-state">Select a user to view transactions.</td></tr></tbody></table></div></section>
+        </section>
+        <section class="panel admin-user-payout"><h2 class="panel-title">Saved withdrawal destination</h2><p class="hint">Authorized administrators can view this when reviewing withdrawals.</p><div data-user-payout-details><p class="admin-empty">Select a user to view payout details.</p></div></section>
+
+        <section class="admin-view" data-view="money" hidden>
+          <div class="page-heading"><div><div class="eyebrow">Operations</div><h1>Deposits &amp; withdrawals</h1><p>Approve only after verifying receipt or completing the external payout. This app records the ledger entry but does not initiate a bank transfer.</p></div></div>
+          <section class="panel"><h2 class="panel-title">Pending deposits and withdrawals</h2><div class="admin-table-wrap"><table class="data-table"><thead><tr><th>Requested</th><th>User</th><th>Type</th><th>Amount</th><th>Method</th><th>Status</th><th>Decision</th></tr></thead><tbody data-money-requests></tbody></table></div></section>
+          <section class="panel admin-reviewed-money"><h2 class="panel-title">Completed / approved deposits and withdrawals</h2><div class="admin-table-wrap"><table class="data-table"><thead><tr><th>Completed</th><th>User</th><th>Type</th><th>Amount</th><th>Method</th><th>Status</th><th>Reference</th></tr></thead><tbody data-completed-money></tbody></table></div></section>
+        </section>
+
+        <section class="admin-view" data-view="payment-channels" hidden>
+          <div class="page-heading"><div><div class="eyebrow">Payment configuration</div><h1>Payment methods</h1><p>Edit names and customer instructions. Turn off Active to hide a method from customers; deposit and withdrawal availability can also be controlled separately.</p></div></div>
+          <div class="admin-payment-channel-list" data-payment-channel-list></div>
+        </section>
+
+        <section class="admin-view" data-view="loans" hidden>
+          <div class="page-heading"><div><div class="eyebrow">Lending</div><h1>Loan requests</h1><p>Review and approve applications. The user must accept an approved amount before it is posted to their app cash ledger.</p></div></div>
+          <section class="panel"><div data-loan-requests></div></section>
+        </section>
+
+        <section class="admin-view" data-view="support" hidden>
+          <div class="page-heading"><div><div class="eyebrow">Customer care</div><h1>Support inbox</h1><p>Replies are sent as the authenticated admin account.</p></div></div>
+          <section class="panel support-admin"><aside class="support-list"><h2 class="panel-title">Start or select a conversation</h2><label class="field">User<select class="control" data-support-recipient required></select></label><h3 class="panel-title">Existing conversations</h3><div data-support-users></div></aside><div class="support-thread"><div class="support-thread-head"><div><strong data-support-customer>Select a user</strong><span data-support-subject>Support inbox</span></div><span class="status status-pending">LIVE</span></div><div class="support-messages" data-support-messages aria-live="polite"></div><form class="support-compose" data-support-form><label class="field">Reply as authenticated account<input class="control" name="agent_identity" value="Loading admin account..." readonly /></label><label class="field">Subject<input class="control" name="subject" value="Account support" maxlength="180" required /></label><label class="field">Message<textarea class="control" name="message" rows="3" maxlength="5000" required></textarea></label><button class="button button-primary" type="submit">Send message</button></form></div></section>
+        </section>
+
+        <section class="admin-view" data-view="portfolio" hidden>
+          <div class="page-heading"><div><div class="eyebrow">Holdings</div><h1>Portfolios</h1><p>Edit position quantity and average cost. All changes are audited; displayed profit/loss is derived.</p></div><select class="control admin-user-select" data-portfolio-user aria-label="Select portfolio user"></select></div>
+          <section class="panel"><p class="hint">Holdings entered here are manual portfolio records. They do not create a trade or change cash balances.</p><div class="admin-table-wrap"><table class="data-table"><thead><tr><th>Asset</th><th>Symbol</th><th>Quantity</th><th>Average cost</th><th>Recorded price</th><th>Save</th></tr></thead><tbody data-portfolio-rows></tbody></table></div></section>
+          <section class="panel"><h2 class="panel-title">Add holding</h2><form class="admin-form" data-portfolio-add><label class="field">Asset<select class="control" name="symbol" data-position-asset required></select></label><label class="field">Quantity<input class="control" name="quantity" type="number" min="0.000000000001" step="any" required /></label><label class="field">Average cost per unit (USD)<input class="control" name="average_cost" type="number" min="0.0000000001" step="any" required /></label><label class="field">Audit reason<input class="control" name="reason" minlength="3" maxlength="500" required /></label><button class="button button-primary" type="submit">Add manual holding</button></form></section>
+        </section>
+
+        <section class="admin-view" data-view="opportunities" hidden>
+          <div class="page-heading"><div><div class="eyebrow">Catalog</div><h1>Investment opportunities</h1><p>Edit asset details and add a recorded manual quote. Manually entered prices are labeled as such, not presented as live feeds.</p></div></div>
+          <div class="admin-split"><section class="panel"><h2 class="panel-title">Assets</h2><div data-opportunity-list></div></section><section class="panel"><h2 class="panel-title">Edit asset</h2><form data-opportunity-form class="admin-form"><label class="field">Name<input class="control" name="name" required /></label><label class="field">Symbol<input class="control" name="symbol" required maxlength="24" /></label><label class="field">Type<select class="control" name="type"><option value="stock">Stock</option><option value="etf">ETF</option><option value="bond">Bond</option><option value="fund">Fund</option><option value="crypto">Crypto</option><option value="private_equity">Private company</option><option value="other">Other</option></select></label><label class="field">Status<select class="control" name="status"><option value="active">Active</option><option value="halted">Halted</option><option value="delisted">Delisted</option></select></label><label class="field">Recorded price (USD)<input class="control" name="price" type="number" min="0" step="0.0001" /></label><label class="field admin-check-field"><span>Tradeable</span><input name="is_tradeable" type="checkbox" /></label><label class="field admin-full-row">Description<textarea class="control" name="description" rows="3" maxlength="5000"></textarea></label><button class="button button-primary" type="submit">Save asset</button></form></section></div>
+        </section>
+      </main>
+    </div>
+  </div>
+  <dialog class="admin-dialog" data-review-dialog><form data-review-form><h2 class="panel-title" data-review-title>Review request</h2><p class="hint" data-review-description></p><label class="field" data-review-amount-wrap hidden>Approved amount (USD)<input class="control" name="approved_amount" type="number" min="1" step="0.01" /></label><label class="field">Reason / review note<textarea class="control" name="reason" rows="3" minlength="3" maxlength="500" required></textarea></label><div class="admin-actions"><button class="button button-quiet" type="button" data-review-cancel>Cancel</button><button class="button button-primary" type="submit">Confirm</button></div></form></dialog>
+  <dialog class="admin-dialog admin-withdrawal-dialog" data-withdrawal-dialog><form data-withdrawal-review-form><h2 class="panel-title">Complete withdrawal</h2><p class="hint" data-withdrawal-summary></p><section class="admin-withdrawal-payout"><h3>Saved payout destination</h3><div data-withdrawal-payout-details></div></section><label class="field admin-check-field"><span>I confirm the external payout is complete</span><input type="checkbox" name="settlement_confirmed" required /></label><div class="admin-actions"><button class="button button-quiet" type="button" data-withdrawal-cancel>Cancel</button><button class="button button-primary" type="submit">Mark payout complete</button></div></form></dialog>
+  <script src="api-client.js?v=20261104-admin-session"></script>
+  <script src="admin.js?v=20261106-withdrawal-destinations"></script>
+  <script src="auth-guard.js?v=20261104-admin-session"></script>
+</body>
+</html>

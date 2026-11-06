@@ -67,6 +67,8 @@
     .cz-root .cz-table tbody td {
       height: 50px;
     }
+    .cz-root .cz-recent-transactions .cz-table thead th { font-size: 10px; }
+    .cz-root .cz-recent-transactions .cz-table tbody td { font-size: 11px; }
     .cz-root .cz-table tbody tr:last-child td {
       border-bottom: 0;
     }
@@ -196,9 +198,7 @@
       <!-- Brand -->
       <div class="d-flex align-items-center justify-content-between h-[34px]">
         <div class="d-flex align-items-center gap-[10px]">
-          <span class="d-inline-flex align-items-center justify-content-center w-[30px] h-[30px] rounded-[8px] bg-[#050505] border border-[#2fbf71]">
-            <svg viewBox="0 0 24 24" class="w-[20px] h-[20px]" fill="#2fbf71"><path d="M12 3.2l3 3-3 3-3-3z"/><path d="M6.2 9l3 3-3 3-3-3z"/><path d="M17.8 9l3 3-3 3-3-3z"/><path d="M12 14.8l3 3-3 3-3-3z"/></svg>
-          </span>
+          <img src="cladvest-logo.svg" alt="" class="w-[30px] h-[30px] rounded-[8px]" />
           <span class="text-[17px] font-medium tracking-[-0.02em]">Cladvest</span>
         </div>
         <button class="cz-btn d-inline-flex align-items-center justify-content-center w-[24px] h-[24px] rounded-[6px] border-1 border-[#2a2a2a] text-[#9a9a9a] bg-transparent" aria-label="Collapse sidebar">
@@ -222,10 +222,10 @@
           <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4M11 8v6m-3-3h6"/></svg>
           Investment details
         </a>
-        <p class="cz-sidebar-group">Portfolio</p>
-        <a href="portfolio.html" class="cz-nav d-flex align-items-center gap-[11px] h-[34px] px-[10px] rounded-[8px] text-[#cfcfcf] text-[14px] no-underline">
-          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"/><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"/></svg>
-          Portfolio
+        <p class="cz-sidebar-group">Account</p>
+        <a href="activity.html" class="cz-nav d-flex align-items-center gap-[11px] h-[34px] px-[10px] rounded-[8px] text-[#cfcfcf] text-[14px] no-underline">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h13l-3-3m3 3-3 3M20 17H7l3 3m-3-3 3-3"/></svg>
+          Transactions
         </a>
         <a href="goals.html" class="cz-nav d-flex align-items-center gap-[11px] h-[34px] px-[10px] rounded-[8px] text-[#cfcfcf] text-[14px] no-underline">
           <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 3v18M3 12h18"/></svg>
@@ -266,10 +266,10 @@
       <!-- User -->
       <div class="mt-auto pt-[20px]">
         <a href="profile.html" class="cz-btn w-100 d-flex align-items-center gap-[10px] bg-[#1c1c1c] rounded-[12px] px-[10px] py-[9px] text-start border-0 text-decoration-none">
-          <img src="https://cdn.magicpatterns.com/patterns/generated-images/cb43b685-6f31-4a49-80e7-f2095e6af0a5.jpg" alt="Sujon Hossain" class="w-[30px] h-[30px] rounded-full object-cover shrink-0" />
+          <span data-auth-user-initials class="d-inline-flex align-items-center justify-content-center w-[30px] h-[30px] rounded-full bg-[#183c2b] text-white text-[10px] shrink-0">DU</span>
           <span class="d-flex flex-column min-w-0 flex-grow-1">
-            <span class="text-[12.5px] text-white leading-[1.3] truncate">Sujon Hossain</span>
-            <span class="text-[10.5px] text-[#a3a3a3] leading-[1.3] truncate">hellooripio@gmail.com</span>
+            <span data-auth-user-name class="text-[12.5px] text-white leading-[1.3] truncate">Demo User</span>
+            <span data-auth-user-email class="text-[10.5px] text-[#a3a3a3] leading-[1.3] truncate">demo@cladvest.local</span>
           </span>
           <svg class="w-[14px] h-[14px] text-[#9a9a9a] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m7 15 5 5 5-5"/><path d="m7 9 5-5 5 5"/></svg>
         </a>
@@ -291,31 +291,37 @@
             <svg class="w-[12px] h-[12px] text-[#a8a8a8]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
             <span class="text-white">Overview</span>
           </div>
-          <h1 class="mt-[2px] text-[20px] font-medium tracking-[-0.02em] text-white">Welcome back, Oripio</h1>
+          <h1 class="mt-[2px] text-[20px] font-medium tracking-[-0.02em] text-white">Welcome back, <span data-auth-first-name>Demo</span></h1>
         </div>
-        <div class="d-flex align-items-center gap-[12px]">
+        <div class="d-flex align-items-center gap-[8px]">
           <label class="d-none d-md-flex align-items-center gap-[8px] h-[34px] w-[240px] px-[12px] rounded-full bg-[#161616]">
             <svg class="w-[15px] h-[15px] text-[#d4d4d4] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
             <input type="text" placeholder="Search here..." class="flex-grow-1 min-w-0 bg-transparent border-0 outline-none text-[13px] text-white" />
             <kbd class="d-inline-flex align-items-center justify-content-center w-[18px] h-[18px] rounded-full bg-[#262626] text-[9px] text-[#cfcfcf] p-0 shadow-none">K</kbd>
             <kbd class="d-inline-flex align-items-center justify-content-center w-[18px] h-[18px] rounded-full bg-[#262626] text-[10px] text-[#cfcfcf] p-0 shadow-none">&#8984;</kbd>
           </label>
+          <a href="add-funds.html" class="cz-btn d-inline-flex align-items-center justify-content-center w-[34px] h-[34px] rounded-full bg-[#161616] border border-[#2fbf71] text-white text-decoration-none" aria-label="Add funds" title="Add funds">
+            <svg class="w-[16px] h-[16px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+          </a>
           <button class="cz-btn position-relative d-inline-flex align-items-center justify-content-center w-[34px] h-[34px] rounded-full bg-[#161616] border-0 text-white" aria-label="Notifications">
             <svg class="w-[16px] h-[16px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
             <span class="position-absolute top-[8px] right-[9px] w-[6px] h-[6px] rounded-full bg-[#ff3b3b]"></span>
           </button>
-          <button class="cz-btn d-inline-flex align-items-center justify-content-center w-[34px] h-[34px] rounded-full bg-[#161616] border-0 text-white" aria-label="Info">
-            <svg class="w-[16px] h-[16px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
-          </button>
+          <a href="goals.html" class="cz-btn d-inline-flex align-items-center justify-content-center w-[34px] h-[34px] rounded-full bg-[#161616] border-0 text-white text-decoration-none" aria-label="Goals" title="Goals">
+            <svg class="w-[16px] h-[16px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/></svg>
+          </a>
         </div>
       </header>
 
       <div class="px-[12px] lg:px-[16px] py-[16px] flex-grow-1 cz-dashboard-content">
-        <div class="cz-mobile-actions" aria-label="Quick actions">
-          <a href="add-funds.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>Add funds</a>
-          <a href="goals.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/></svg>Goals</a>
+        <div class="d-flex align-items-center justify-content-between gap-2 rounded-[8px] border border-[#244331] bg-[#101a14] px-[12px] py-[9px] mb-[12px] text-[#c5f0d7] text-[12px]" data-dashboard-investment-status role="status" aria-live="polite" hidden>
+          <span data-dashboard-investment-copy>Investment schedule is on.</span>
+          <div class="d-flex align-items-center gap-3"><a class="text-[#c5f0d7] underline" href="investment-detail.html">Manage</a><button class="button button-quiet p-0" type="button" data-dismiss-banners aria-label="Dismiss all banners" title="Dismiss all banners">×</button></div>
         </div>
-
+        <section class="d-flex align-items-start justify-content-between gap-3 rounded-[8px] border border-[#244331] bg-[#101a14] px-[12px] py-[10px] mb-[12px] text-[#c5f0d7] text-[12px]" data-dashboard-notifications aria-label="Notifications" hidden>
+          <div class="d-grid gap-2" data-dashboard-notification-items></div>
+          <button class="button button-quiet p-0" type="button" data-dismiss-banners aria-label="Dismiss all banners" title="Dismiss all banners">×</button>
+        </section>
         <!-- Stat cards -->
         <div class="row g-3 cz-stat-grid">
           <div class="col-6 col-xl-3">
@@ -328,10 +334,7 @@
               </div>
               <p class="mt-[16px] text-[11px] text-[#a8a8a8]">Balance</p>
               <div class="d-flex align-items-center justify-content-between gap-[8px]">
-                <span class="text-[20px] font-medium tracking-[-0.02em]">$24,450.00</span>
-                <span class="d-inline-flex align-items-center gap-[3px] px-[7px] py-[3px] rounded-full bg-[#163723] text-[#3fcf7d] text-[9px] whitespace-nowrap">
-                  <svg class="w-[10px] h-[10px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 7 13.5 15.5 8.5 10.5 2 17"/><path d="M16 7h6v6"/></svg>+32.7%
-                </span>
+                <span data-account-total class="text-[20px] font-medium tracking-[-0.02em]">$0.00</span>
               </div>
             </div>
           </div>
@@ -341,14 +344,11 @@
                 <span class="d-inline-flex align-items-center justify-content-center w-[30px] h-[30px] rounded-full bg-[#232323] text-white">
                   <svg class="w-[16px] h-[16px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="13" width="3" height="7" rx="1"/><rect x="9" y="10" width="3" height="10" rx="1"/><rect x="14.5" y="12" width="3" height="8" rx="1"/><circle cx="18.5" cy="6" r="2.5"/></svg>
                 </span>
-                <span class="text-[14px] text-white">Trade</span>
+                <span class="text-[14px] text-white">Available Cash</span>
               </div>
-              <p class="mt-[16px] text-[11px] text-[#a8a8a8]">Trading Days</p>
+              <p class="mt-[16px] text-[11px] text-[#a8a8a8]">Across cash accounts</p>
               <div class="d-flex align-items-center justify-content-between gap-[8px]">
-                <span class="text-[20px] font-medium tracking-[-0.02em]">$12,540.00</span>
-                <span class="d-inline-flex align-items-center gap-[3px] px-[7px] py-[3px] rounded-full bg-[#163723] text-[#3fcf7d] text-[9px] whitespace-nowrap">
-                  <svg class="w-[10px] h-[10px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 7 13.5 15.5 8.5 10.5 2 17"/><path d="M16 7h6v6"/></svg>+24.3%
-                </span>
+                <span data-account-cash class="text-[20px] font-medium tracking-[-0.02em]">$0.00</span>
               </div>
             </div>
           </div>
@@ -358,14 +358,11 @@
                 <span class="d-inline-flex align-items-center justify-content-center w-[30px] h-[30px] rounded-full bg-[#232323] text-white">
                   <svg class="w-[16px] h-[16px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16 14 10l-4 4-7-6"/><path d="M16 16h5v-5"/></svg>
                 </span>
-                <span class="text-[14px] text-white">Loss</span>
+                <span class="text-[14px] text-white">Investment Profit</span>
               </div>
-              <p class="mt-[16px] text-[11px] text-[#a8a8a8]">Trading Days</p>
+              <p class="mt-[16px] text-[11px] text-[#a8a8a8]">Unrealized vs. cost basis</p>
               <div class="d-flex align-items-center justify-content-between gap-[8px]">
-                <span class="text-[20px] font-medium tracking-[-0.02em]">$8,950.00</span>
-                <span class="d-inline-flex align-items-center gap-[3px] px-[7px] py-[3px] rounded-full bg-[#3a1518] text-[#ff4d58] text-[9px] whitespace-nowrap">
-                  <svg class="w-[10px] h-[10px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 17 13.5 8.5 8.5 13.5 2 7"/><path d="M16 17h6v-6"/></svg>-12.8%
-                </span>
+                <span data-investment-profit class="text-[20px] font-medium tracking-[-0.02em]">$0.00</span>
               </div>
             </div>
           </div>
@@ -375,14 +372,11 @@
                 <span class="d-inline-flex align-items-center justify-content-center w-[30px] h-[30px] rounded-full bg-[#232323] text-white">
                   <svg class="w-[16px] h-[16px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="13" x="3" y="3.5" rx="2.5"/><path d="M8 21h8"/><path d="M12 16.5V21"/><path d="M12 6.5v7"/><path d="M14 8h-2.5a1.25 1.25 0 0 0 0 2.5h1a1.25 1.25 0 0 1 0 2.5H10"/></svg>
                 </span>
-                <span class="text-[14px] text-white">Profit</span>
+                <span class="text-[14px] text-white">Active Accounts</span>
               </div>
-              <p class="mt-[16px] text-[11px] text-[#a8a8a8]">Trading Days</p>
+              <p class="mt-[16px] text-[11px] text-[#a8a8a8]">Available account count</p>
               <div class="d-flex align-items-center justify-content-between gap-[8px]">
-                <span class="text-[20px] font-medium tracking-[-0.02em]">$12,645.00</span>
-                <span class="d-inline-flex align-items-center gap-[3px] px-[7px] py-[3px] rounded-full bg-[#163723] text-[#3fcf7d] text-[9px] whitespace-nowrap">
-                  <svg class="w-[10px] h-[10px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 7 13.5 15.5 8.5 10.5 2 17"/><path d="M16 7h6v6"/></svg>+38.9%
-                </span>
+                <span data-account-count class="text-[20px] font-medium tracking-[-0.02em]">0</span>
               </div>
             </div>
           </div>
@@ -468,95 +462,14 @@
             <!-- Recent transactions -->
             <section class="bg-[#151515] rounded-[14px] p-[14px] flex-grow-1 cz-recent-transactions">
               <div class="d-flex flex-wrap align-items-center justify-content-between gap-[10px]">
-                <h2 class="text-[15px] font-normal tracking-[-0.02em] text-white">Recent transactions</h2>
-                <div class="d-flex align-items-center gap-[12px]">
-                  <label class="d-flex align-items-center gap-[8px] h-[28px] w-[180px] px-[10px] rounded-[8px] bg-[#1b1b1b]">
-                    <svg class="w-[14px] h-[14px] text-[#cfcfcf] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-                    <input type="text" placeholder="Search" class="flex-grow-1 min-w-0 bg-transparent border-0 outline-none text-[12px] text-white" />
-                  </label>
-                  <div class="d-flex align-items-center gap-[2px] h-[28px] p-[3px] rounded-[8px] bg-[#1b1b1b]">
-                    <button class="cz-btn h-[22px] px-[8px] rounded-[6px] bg-transparent border-0 text-[9.5px] text-[#9a9a9a]">1D</button>
-                    <button class="cz-btn h-[22px] px-[8px] rounded-[6px] bg-transparent border-0 text-[9.5px] text-[#9a9a9a]">7D</button>
-                    <button class="cz-btn h-[22px] px-[8px] rounded-[6px] bg-transparent border-0 text-[9.5px] text-[#9a9a9a]">1M</button>
-                    <button class="cz-btn h-[22px] px-[10px] rounded-[6px] bg-[#2a2a2a] border-0 text-[9.5px] text-white">1Y</button>
-                  </div>
-                </div>
+                <h2 class="text-[15px] font-normal tracking-[-0.02em] text-white">Recent activity</h2>
+                <a href="activity.html" class="text-[12px] text-[#bdbdbd] no-underline hover:text-white">View all</a>
               </div>
 
               <div class="table-responsive mt-[14px] rounded-[10px] border-1 border-[#1f1f1f] bg-[#121212]">
                 <table class="table cz-table">
-                  <thead>
-                    <tr>
-                      <th>Assets</th>
-                      <th>Price</th>
-                      <th class="text-center">24h Change <svg class="d-inline w-[11px] h-[11px] ml-[2px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7 15 5 5 5-5"/><path d="m7 9 5-5 5 5"/></svg></th>
-                      <th class="text-center">Volume (24h) <svg class="d-inline w-[11px] h-[11px] ml-[2px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7 15 5 5 5-5"/><path d="m7 9 5-5 5 5"/></svg></th>
-                      <th class="text-center">24h Trend</th>
-                      <th class="text-center">Market Cap <svg class="d-inline w-[11px] h-[11px] ml-[2px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7 15 5 5 5-5"/><path d="m7 9 5-5 5 5"/></svg></th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>
-                        <div class="d-flex align-items-center gap-[10px]">
-                          <span class="coin w-[26px] h-[26px] bg-[#f7a600]">
-                            <svg viewBox="0 0 24 24"><g transform="rotate(14 12 12)"><path d="M10 6.5v11M12.6 6.5V5M10.3 5v1.5M12.6 19v-1.5M10.3 19v-1.5" stroke="#fff" stroke-width="1.4" stroke-linecap="round"/><path d="M8.6 6.6h4.6a2.4 2.4 0 0 1 0 4.8H9.3M9.3 11.4h4.5a2.6 2.6 0 0 1 0 5.2H8.6" fill="none" stroke="#fff" stroke-width="1.7" stroke-linejoin="round"/></g></svg>
-                          </span>
-                          <div class="leading-[1.25]"><p class="text-[12.5px]">Bitcoin</p><p class="text-[10.5px] text-[#a8a8a8]">BTC</p></div>
-                        </div>
-                      </td>
-                      <td class="text-[12.5px]">$6,280.50</td>
-                      <td class="text-center"><span class="d-inline-flex align-items-center gap-[3px] text-[9.5px] text-[#3fcf7d]"><svg class="w-[10px] h-[10px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 7 13.5 15.5 8.5 10.5 2 17"/><path d="M16 7h6v6"/></svg>+32.7%</span></td>
-                      <td class="text-center text-[12.5px]">$18.7B</td>
-                      <td class="text-center"><svg class="d-inline w-[78px] h-[24px]" viewBox="0 0 76 24" fill="none"><path d="M0 20 L6 17 L10 19 L14 15 L18 17 L22 13 L26 18 L30 9 L34 19 L38 12 L42 15 L46 3 L50 12 L54 8 L58 10 L64 9 L70 10 L76 10" stroke="#2fbf71" stroke-width="1.2" stroke-linejoin="round"/></svg></td>
-                      <td class="text-center text-[12.5px]">$4.8T</td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="d-flex align-items-center gap-[10px]">
-                          <span class="coin w-[26px] h-[26px] bg-[#9b4dff]">
-                            <svg viewBox="0 0 24 24" fill="#fff"><path d="M8.3 7.2h9.4l-1.8 1.9H6.5z"/><path d="M6.5 11.05h9.4l1.8 1.9H8.3z"/><path d="M8.3 14.9h9.4l-1.8 1.9H6.5z"/></svg>
-                          </span>
-                          <div class="leading-[1.25]"><p class="text-[12.5px]">Solana</p><p class="text-[10.5px] text-[#a8a8a8]">SOL</p></div>
-                        </div>
-                      </td>
-                      <td class="text-[12.5px]">$4,320.75</td>
-                      <td class="text-center"><span class="d-inline-flex align-items-center gap-[3px] text-[9.5px] text-[#ff4d58]"><svg class="w-[10px] h-[10px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 17 13.5 8.5 8.5 13.5 2 7"/><path d="M16 17h6v-6"/></svg>-24.8%</span></td>
-                      <td class="text-center text-[12.5px]">$4.3B</td>
-                      <td class="text-center"><svg class="d-inline w-[78px] h-[24px]" viewBox="0 0 76 24" fill="none"><path d="M0 6 L6 8 L10 18 L14 20 L18 14 L22 18 L26 10 L30 16 L34 8 L38 14 L42 3 L46 20 L50 10 L54 16 L58 21 L66 21 L76 22" stroke="#ff4d58" stroke-width="1.2" stroke-linejoin="round"/></svg></td>
-                      <td class="text-center text-[12.5px]">$32.5T</td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="d-flex align-items-center gap-[10px]">
-                          <span class="coin w-[26px] h-[26px] bg-white">
-                            <svg viewBox="0 0 24 24"><path d="M12 4.5 7.4 12.2 12 15l4.6-2.8z" fill="#1f1f1f"/><path d="M12 15.9 7.4 13.1 12 19.5l4.6-6.4z" fill="#3a3a3a"/></svg>
-                          </span>
-                          <div class="leading-[1.25]"><p class="text-[12.5px]">Ethereum</p><p class="text-[10.5px] text-[#a8a8a8]">ETH</p></div>
-                        </div>
-                      </td>
-                      <td class="text-[12.5px]">$520.40</td>
-                      <td class="text-center"><span class="d-inline-flex align-items-center gap-[3px] text-[9.5px] text-[#3fcf7d]"><svg class="w-[10px] h-[10px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 7 13.5 15.5 8.5 10.5 2 17"/><path d="M16 7h6v6"/></svg>+32.7%</span></td>
-                      <td class="text-center text-[12.5px]">$32.5B</td>
-                      <td class="text-center"><svg class="d-inline w-[78px] h-[24px]" viewBox="0 0 76 24" fill="none"><path d="M0 12 L6 10 L10 14 L14 8 L18 12 L22 2 L26 14 L30 22 L34 12 L38 18 L42 16 L46 13 L50 18 L54 15 L58 20 L64 17 L70 20 L76 19" stroke="#2fbf71" stroke-width="1.2" stroke-linejoin="round"/></svg></td>
-                      <td class="text-center text-[12.5px]">$88.1B</td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="d-flex align-items-center gap-[10px]">
-                          <span class="coin w-[26px] h-[26px] bg-[#f4511e]">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="3.6"/><path d="M12 5v2.2M12 16.8V19M5 12h2.2M16.8 12H19M7 7l1.5 1.5M15.5 15.5 17 17"/></svg>
-                          </span>
-                          <div class="leading-[1.25]"><p class="text-[12.5px]">Quant</p><p class="text-[10.5px] text-[#a8a8a8]">QNT</p></div>
-                        </div>
-                      </td>
-                      <td class="text-[12.5px]">$5,783.89</td>
-                      <td class="text-center"><span class="d-inline-flex align-items-center gap-[3px] text-[9.5px] text-[#3fcf7d]"><svg class="w-[10px] h-[10px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 7 13.5 15.5 8.5 10.5 2 17"/><path d="M16 7h6v6"/></svg>+32.7%</span></td>
-                      <td class="text-center text-[12.5px]">$12.9B</td>
-                      <td class="text-center"><svg class="d-inline w-[78px] h-[24px]" viewBox="0 0 76 24" fill="none"><path d="M0 20 L6 18 L10 20 L14 16 L18 14 L22 17 L26 12 L30 19 L34 15 L38 18 L42 13 L46 4 L50 13 L54 9 L58 11 L64 10 L70 11 L76 11" stroke="#2fbf71" stroke-width="1.2" stroke-linejoin="round"/></svg></td>
-                      <td class="text-center text-[12.5px]">$44.1B</td>
-                    </tr>
-                  </tbody>
+                  <thead><tr><th>Date</th><th>Type</th><th>Details</th><th>Amount</th><th>Status</th></tr></thead>
+                  <tbody data-dashboard-transactions><tr><td colspan="5" class="text-center text-[#a8a8a8]">Loading account activity…</td></tr></tbody>
                 </table>
               </div>
             </section>
@@ -565,118 +478,36 @@
           <!-- ===== Right column ===== -->
           <div class="col-12 col-xl-4 d-flex flex-column gap-3">
 
-            <!-- Swap Crypto -->
             <section class="bg-[#151515] rounded-[14px] p-[14px]">
-              <div class="d-flex align-items-center justify-content-between">
-                <h2 class="text-[15px] font-normal tracking-[-0.02em] text-white">Swap Crypto</h2>
-                <button class="cz-btn d-inline-flex bg-transparent border-0 p-0 text-[#d4d4d4]" aria-label="Swap settings">
-                  <svg class="w-[16px] h-[16px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 7h-8"/><path d="M8 7H3"/><path d="M21 17h-5"/><path d="M11 17H3"/><circle cx="10.5" cy="7" r="2.5"/><circle cx="13.5" cy="17" r="2.5"/></svg>
-                </button>
-              </div>
-
-              <div class="position-relative mt-[14px]">
-                <!-- FROM -->
-                <div class="bg-[#1b1b1b] rounded-[12px] px-[14px] pt-[14px] pb-[14px]">
-                  <div class="d-flex align-items-center justify-content-between">
-                    <span class="text-[11.5px] text-[#bdbdbd]">FROM</span>
-                    <button class="cz-btn d-inline-flex align-items-center gap-[5px] h-[22px] pl-[3px] pr-[8px] rounded-full bg-[#242424] border-0 text-[10.5px] text-[#e5e5e5]">
-                      <span class="coin w-[16px] h-[16px] bg-[#e84142]"><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 6.2 17.6 16h-3.3l-2.3-4-2.3 4H6.4z"/></svg></span>
-                      Avalanche
-                      <svg class="w-[7px] h-[7px] text-[#bdbdbd]" viewBox="0 0 10 10" fill="currentColor"><path d="M1 3h8L5 8z"/></svg>
-                    </button>
-                  </div>
-                  <div class="d-flex align-items-center justify-content-between mt-[16px]">
-                    <button class="cz-btn d-inline-flex align-items-center gap-[8px] bg-transparent border-0 p-0 text-white">
-                      <span class="coin w-[28px] h-[28px] bg-[#627eea]"><svg viewBox="0 0 24 24"><path d="M12 5 8 11.7 12 14l4-2.3z" fill="#fff"/><path d="M12 14.8 8 12.5 12 18.4l4-5.9z" fill="#dfe5ff"/></svg></span>
-                      <span class="text-[20px] font-medium tracking-[-0.02em]">ETH</span>
-                      <svg class="w-[9px] h-[9px] text-[#cfcfcf]" viewBox="0 0 10 10" fill="currentColor"><path d="M1 3h8L5 8z"/></svg>
-                    </button>
-                    <span class="text-[20px] font-medium tracking-[-0.02em]">12</span>
-                  </div>
-                  <div class="d-flex align-items-center justify-content-between mt-[12px]">
-                    <button class="cz-btn h-[18px] px-[7px] rounded-[6px] bg-[#262626] border-0 text-[8.5px] text-[#e5e5e5]">Max</button>
-                    <span class="text-[13px] text-[#cfcfcf]">3248.30</span>
-                  </div>
+              <h2 class="text-[15px] font-normal text-white">Crypto swap preview</h2>
+              <p class="text-[10px] text-[#a8a8a8]">Stored demo quotes only. Saving a preview never moves tokens or changes balances.</p>
+              <form class="d-grid gap-2 mt-[14px]" data-swap-form>
+                <label class="text-[11px] text-[#bdbdbd]" for="swap-from">From asset</label>
+                <select class="form-select form-select-sm bg-[#1b1b1b] border-[#333] text-white" id="swap-from" name="from" data-swap-from required></select>
+                <label class="text-[11px] text-[#bdbdbd]" for="swap-amount">Amount</label>
+                <input class="form-control form-control-sm bg-[#1b1b1b] border-[#333] text-white" id="swap-amount" name="amount" type="number" min="0.000000000001" step="any" value="1" required />
+                <button class="cz-btn justify-self-center rounded-full bg-[#232323] border-0 px-3 py-1 text-[11px] text-white" type="button" data-swap-switch aria-label="Switch assets">Switch assets</button>
+                <label class="text-[11px] text-[#bdbdbd]" for="swap-to">To asset</label>
+                <select class="form-select form-select-sm bg-[#1b1b1b] border-[#333] text-white" id="swap-to" name="to" data-swap-to required></select>
+                <div class="rounded-[8px] bg-[#1b1b1b] p-3" aria-live="polite">
+                  <div class="text-[10px] text-[#a8a8a8]">Estimated output</div>
+                  <strong class="text-[18px] text-white" data-swap-output>Loading quote...</strong>
+                  <div class="text-[10px] text-[#a8a8a8]" data-swap-rate></div>
+                  <div class="text-[10px] text-[#a8a8a8]" data-swap-fee>Provider fees are not included.</div>
                 </div>
-
-                <!-- Switch -->
-                <div class="d-flex justify-content-center h-[8px] position-relative z-10">
-                  <button class="cz-btn position-absolute top-1/2 -translate-y-1/2 d-inline-flex align-items-center justify-content-center w-[34px] h-[34px] rounded-full bg-[#1f1f1f] border-[3px] border-[#151515] text-white" aria-label="Switch tokens">
-                    <svg class="w-[14px] h-[14px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 20V4l-4 4"/><path d="M15 4v16l4-4"/></svg>
-                  </button>
-                </div>
-
-                <!-- TO -->
-                <div class="bg-[#1b1b1b] rounded-[12px] px-[14px] pt-[14px] pb-[12px]">
-                  <div class="d-flex align-items-center justify-content-between">
-                    <span class="text-[11.5px] text-[#bdbdbd]">TO</span>
-                    <button class="cz-btn d-inline-flex align-items-center gap-[5px] h-[22px] pl-[3px] pr-[8px] rounded-full bg-[#242424] border-0 text-[10.5px] text-[#e5e5e5]">
-                      <span class="coin w-[16px] h-[16px] bg-[#f3ba2f]"><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 5.5l2.2 2.2L12 9.9 9.8 7.7z"/><path d="M16.3 9.8l2.2 2.2-2.2 2.2-2.2-2.2z"/><path d="M7.7 9.8l2.2 2.2-2.2 2.2L5.5 12z"/><path d="M12 14.1l2.2 2.2L12 18.5l-2.2-2.2z"/><path d="M12 10.4l1.6 1.6-1.6 1.6-1.6-1.6z"/></svg></span>
-                      BNB Chain
-                      <svg class="w-[7px] h-[7px] text-[#bdbdbd]" viewBox="0 0 10 10" fill="currentColor"><path d="M1 3h8L5 8z"/></svg>
-                    </button>
-                  </div>
-                  <div class="d-flex align-items-center justify-content-between mt-[16px]">
-                    <button class="cz-btn d-inline-flex align-items-center gap-[8px] bg-transparent border-0 p-0 text-white">
-                      <span class="coin w-[28px] h-[28px] bg-[#26a17b]"><svg viewBox="0 0 24 24" fill="none"><path d="M7 6.8h10v2.5h-3.6V18h-2.8V9.3H7z" fill="#fff"/><ellipse cx="12" cy="11.4" rx="5.2" ry="1.4" stroke="#fff" stroke-width="1"/></svg></span>
-                      <span class="text-[20px] font-medium tracking-[-0.02em]">USDT</span>
-                      <svg class="w-[9px] h-[9px] text-[#cfcfcf]" viewBox="0 0 10 10" fill="currentColor"><path d="M1 3h8L5 8z"/></svg>
-                    </button>
-                    <span class="text-[20px] font-medium tracking-[-0.02em]">25735.71</span>
-                  </div>
-                  <div class="d-flex align-items-center justify-content-between mt-[12px]">
-                    <button class="cz-btn h-[18px] px-[7px] rounded-[6px] bg-[#262626] border-0 text-[8.5px] text-[#e5e5e5]">Max</button>
-                    <span class="text-[13px] text-[#cfcfcf]">20,600.00</span>
-                  </div>
-                  <button class="cz-btn w-100 mt-[12px] h-[26px] rounded-full bg-[#232323] border-0 text-[11px] text-[#e5e5e5]">Add recipient address</button>
-                </div>
-              </div>
-
-              <div class="d-flex align-items-center justify-content-between mt-[14px] text-[12px] text-[#d4d4d4]">
-                <span>1 ETH = 2144.64 USDT ($)</span>
-                <span>FEE - 12.5</span>
-              </div>
-              <button class="cz-btn w-100 mt-[12px] h-[34px] rounded-[8px] bg-[#2fbf71] hover:bg-[#27a964] border-0 text-[12.5px] text-[#07140c]">Swap</button>
+                <button class="cz-btn w-100 h-[34px] rounded-[8px] bg-[#2fbf71] border-0 text-[12px] text-[#07140c]" type="submit" data-swap-submit disabled>Save simulation</button>
+              </form>
+              <p class="mt-2 text-[10px] text-[#a8a8a8]" data-swap-feedback role="status"></p>
+              <div class="mt-2" data-swap-history></div>
             </section>
 
             <!-- Top Movers -->
             <section class="bg-[#151515] rounded-[14px] p-[14px] flex-grow-1">
               <div class="d-flex align-items-center justify-content-between">
                 <h2 class="text-[14.5px] font-normal tracking-[-0.02em] text-white">Top Movers</h2>
-                <a href="#" class="text-[12px] text-[#bdbdbd] no-underline hover:text-white">See all</a>
+                <a href="opportunities.html" class="text-[12px] text-[#bdbdbd] no-underline hover:text-white">See all</a>
               </div>
-              <ul class="list-unstyled mt-[6px]">
-                <li class="d-flex align-items-center justify-content-between py-[11px] border-b border-[#232323]">
-                  <div class="d-flex align-items-center gap-[10px]">
-                    <span class="coin w-[30px] h-[30px] bg-[#0e1a2b]"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.2" stroke="#3aa0ff" stroke-width="1.2"/><path d="M13.2 5.8 8.6 12.8h3.3l-1.1 5.4 4.6-7h-3.3z" fill="#3aa0ff"/></svg></span>
-                    <div class="leading-[1.25]"><p class="text-[13px]">Electroneum</p><p class="text-[10.5px] text-[#a8a8a8]">ETN</p></div>
-                  </div>
-                  <div class="text-end leading-[1.25]">
-                    <p class="text-[12.5px]">$0.2724</p>
-                    <p class="d-inline-flex align-items-center gap-[3px] text-[10px] text-[#3fcf7d]"><svg class="w-[8px] h-[8px]" viewBox="0 0 10 10" fill="currentColor"><path d="M5 1.5 9.2 8.5H.8z"/></svg>3.18%</p>
-                  </div>
-                </li>
-                <li class="d-flex align-items-center justify-content-between py-[11px] border-b border-[#232323]">
-                  <div class="d-flex align-items-center gap-[10px]">
-                    <span class="coin w-[30px] h-[30px] bg-[#9b4dff]"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8.3 7.2h9.4l-1.8 1.9H6.5z"/><path d="M6.5 11.05h9.4l1.8 1.9H8.3z"/><path d="M8.3 14.9h9.4l-1.8 1.9H6.5z"/></svg></span>
-                    <div class="leading-[1.25]"><p class="text-[13px]">Solana</p><p class="text-[10.5px] text-[#a8a8a8]">SOL</p></div>
-                  </div>
-                  <div class="text-end leading-[1.25]">
-                    <p class="text-[12.5px]">$20.47</p>
-                    <p class="d-inline-flex align-items-center gap-[3px] text-[10px] text-[#3fcf7d]"><svg class="w-[8px] h-[8px]" viewBox="0 0 10 10" fill="currentColor"><path d="M5 1.5 9.2 8.5H.8z"/></svg>5.76%</p>
-                  </div>
-                </li>
-                <li class="d-flex align-items-center justify-content-between pt-[11px]">
-                  <div class="d-flex align-items-center gap-[10px]">
-                    <span class="coin w-[30px] h-[30px] bg-[#4b3bd1]"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round"><path d="M7.5 7h9"/><path d="M9 7v6.5a3 3 0 0 0 6 0V7"/><path d="M12 9.5v6"/></svg></span>
-                    <div class="leading-[1.25]"><p class="text-[13px]">Utrust</p><p class="text-[10.5px] text-[#a8a8a8]">UTK</p></div>
-                  </div>
-                  <div class="text-end leading-[1.25]">
-                    <p class="text-[12.5px]">$15.82</p>
-                    <p class="d-inline-flex align-items-center gap-[3px] text-[10px] text-[#3fcf7d]"><svg class="w-[8px] h-[8px]" viewBox="0 0 10 10" fill="currentColor"><path d="M5 1.5 9.2 8.5H.8z"/></svg>2.42%</p>
-                  </div>
-                </li>
-              </ul>
+              <ul class="list-unstyled mt-[6px]" data-market-movers><li class="py-3 text-[11px] text-[#a8a8a8]">Loading stored quotes...</li></ul>
             </section>
           </div>
         </div>
@@ -688,6 +519,9 @@
 
   <!-- Bootstrap JS (optional, for dropdowns/tooltips) -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="api-client.js"></script>
   <script src="app-pages.js"></script>
+  <script src="dashboard-data.js"></script>
+  <script src="auth-guard.js"></script>
 </body>
 </html>

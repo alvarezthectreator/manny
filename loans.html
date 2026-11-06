@@ -15,10 +15,10 @@
 <body data-page="Loans">
   <div id="app"><div class="page-body">
     <div class="page-heading">
-      <div><div class="eyebrow">Borrowing</div><h1>Loan center</h1><p>Explore an illustrative repayment estimate and track simulated requests. No credit is offered or issued here.</p></div>
+      <div><div class="eyebrow">Borrowing</div><h1>Loan center</h1><p>Review an estimate, track submitted applications, and accept an approved amount into your account cash balance.</p></div>
       <span class="pill">Estimate only</span>
     </div>
-    <div class="notice notice-green" style="margin-bottom:16px">No credit check, eligibility decision, loan offer, or funds transfer takes place. Do not enter sensitive personal or financial information.</div>
+    <div class="notice notice-green" style="margin-bottom:16px">Applications are reviewed by an administrator. An approved amount is not transferred until you accept it; no external lender or funding provider is connected.</div>
     <div class="form-grid">
       <section class="panel">
         <h2 class="panel-title">Estimate your payments</h2>
@@ -32,7 +32,7 @@
             <div class="divider"></div>
             <div class="summary-row"><span>Estimated total repayment</span><strong data-loan-total>$0.00</strong></div>
           </div>
-          <button class="button button-primary" type="submit" style="margin-top:16px">Save request preview</button>
+          <button class="button button-primary" type="submit" style="margin-top:16px">Submit loan application</button>
         </form>
       </section>
       <aside class="panel">
@@ -44,15 +44,17 @@
         </div>
         <div class="divider"></div>
         <p class="hint">The estimate assumes a fixed rate and equal monthly payments. A real lender sets rates, fees, eligibility, and repayment terms. Actual offers may differ.</p>
-        <p class="disclaimer">Cladvest is not a lender. This is not a prequalification, loan offer, or financial recommendation. Never borrow or invest based on this illustrative estimate.</p>
+        <p class="disclaimer">Cladvest is not a lender. The application is an internal workflow and does not constitute a credit offer or financial recommendation.</p>
       </aside>
     </div>
     <div class="form-grid" style="margin-top:16px">
-      <section class="panel"><h2 class="panel-title">Request status</h2><p class="hint" style="margin-bottom:12px">Submissions are saved only in this browser and are never reviewed by a lender.</p><div data-loan-requests><p class="empty-state">No requests submitted yet.</p></div></section>
+      <section class="panel"><h2 class="panel-title">Request status</h2><p class="hint" style="margin-bottom:12px">Applications are reviewed by an administrator. Accepting an approved amount records it in your app cash ledger; no external lender or bank transfer is connected.</p><div data-loan-requests><p class="empty-state">No requests submitted yet.</p></div></section>
       <section class="panel"><h2 class="panel-title">Estimated repayment schedule</h2><p class="hint" style="margin-bottom:12px">First three installments based on the calculator above. These are not bills or amounts due.</p><div class="table-wrap"><table class="data-table"><thead><tr><th>Installment</th><th>Illustrative date</th><th>Estimate</th><th>Status</th></tr></thead><tbody data-loan-schedule></tbody></table></div></section>
     </div>
-    <section class="panel" style="margin-top:16px"><div class="switch-row" style="border-top:0;padding-top:0"><label for="loan-reminder"><strong>Due-date reminder preview</strong><br /><span class="hint">Local preference only; no notification will be sent.</span></label><input id="loan-reminder" data-loan-reminder type="checkbox" checked /></div><p class="disclaimer">Any future live loan product would need a lending partner, complete terms, clear disclosures, affordability checks, and servicing support.</p></section>
+    <section class="panel" style="margin-top:16px"><div class="switch-row" style="border-top:0;padding-top:0"><label for="loan-reminder"><strong>Due-date reminder preference</strong><br /><span class="hint">Saved to your account. No notification will be sent by this preview.</span></label><input id="loan-reminder" data-loan-reminder type="checkbox" checked /></div><p class="disclaimer">Any future live loan product would need a lending partner, complete terms, clear disclosures, affordability checks, and servicing support.</p></section>
   </div></div>
+  <script src="api-client.js"></script>
   <script src="app-pages.js"></script>
+  <script src="auth-guard.js"></script>
 </body>
 </html>

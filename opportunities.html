@@ -14,18 +14,14 @@
 </head>
 <body data-page="Opportunities">
   <div id="app"><div class="page-body">
-    <div class="page-heading"><div><div class="eyebrow">Explore</div><h1>Investment opportunities</h1><p>Browse illustrative opportunities. Values and availability are not live offers.</p></div><a class="button button-primary" href="add-funds.html">Add funds</a></div>
-    <div class="notice notice-green" style="margin-bottom:16px">Sample information only. Tesla is shown as a public-company example. SpaceX is private; this page does not offer access to SpaceX shares.</div>
-    <section class="panel">
-      <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-3"><h2 class="panel-title mb-0">Browse opportunities</h2><input class="control" data-filter-input type="search" placeholder="Search companies or symbols" aria-label="Search opportunities" style="max-width:280px" /></div>
-      <div class="table-wrap"><table class="data-table"><thead><tr><th>Company</th><th>Type</th><th>Sample price</th><th>Sample change</th><th>Category</th><th></th></tr></thead><tbody>
-        <tr data-filter-item><td><div class="list-primary"><span class="asset-icon">T</span><span><span class="list-title">Tesla</span><br /><span class="list-subtitle">TSLA</span></span></div></td><td>Public stock</td><td>$248.50</td><td class="text-green">+2.4%</td><td>Automotive</td><td><a class="button" href="investment-detail.html">View details</a></td></tr>
-        <tr data-filter-item><td><div class="list-primary"><span class="asset-icon">S</span><span><span class="list-title">SpaceX</span><br /><span class="list-subtitle">Private company</span></span></div></td><td>Private company</td><td>Not quoted</td><td class="muted">N/A</td><td>Aerospace</td><td><a class="button" href="investment-detail.html">View details</a></td></tr>
-        <tr data-filter-item><td><div class="list-primary"><span class="asset-icon">N</span><span><span class="list-title">NVIDIA</span><br /><span class="list-subtitle">NVDA</span></span></div></td><td>Public stock</td><td>$142.20</td><td class="text-green">+1.1%</td><td>Technology</td><td><a class="button" href="investment-detail.html">View details</a></td></tr>
-      </tbody></table></div>
-      <p class="disclaimer">Illustrative information only, not an offer, recommendation, or investment advice. Private investments can have additional eligibility and liquidity restrictions.</p>
+    <div class="page-heading"><div><div class="eyebrow">Explore</div><h1>Investment opportunities</h1><p>Choose an asset to review its details and estimate an investment from your available cash.</p></div><a class="button button-primary" href="add-funds.html">Add funds</a></div>
+    <section class="panel opportunity-browser">
+      <div class="opportunity-toolbar"><div><h2 class="panel-title mb-0">Browse assets</h2><p class="hint" data-opportunity-balance>Loading available cash...</p></div><div class="opportunity-filters"><input class="control" data-filter-input type="search" placeholder="Search name or symbol" aria-label="Search opportunities" /><select class="control" data-asset-type-filter aria-label="Filter by asset type"><option value="">All asset types</option><option value="stock">Stocks</option><option value="crypto">Crypto</option><option value="private_equity">Private companies</option><option value="other">Other assets</option></select></div></div>
+      <div class="opportunity-grid" data-asset-list><p class="empty-state">Loading investment opportunities...</p></div>
     </section>
   </div></div>
+  <script src="api-client.js"></script>
   <script src="app-pages.js"></script>
+  <script src="auth-guard.js"></script>
 </body>
 </html>
